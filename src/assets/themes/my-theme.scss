@@ -1,0 +1,87 @@
+
+@use '~@angular/material' as mat;
+
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+
+$mat-paj: (
+  50: #111,
+  100: #1a1a1a,
+  200: #222,
+  300: #2a2a2a,
+  400: #333,
+  500: #3a3a3a,
+  600: #444,
+  700: #4a4a4a,
+  800: #2DB8E3,
+  900: #2DB8E3,
+  A100: #52d4fc,
+  A200: #5bd5fa,
+  A400: #6edbfc,
+  A700: #7eddfa,
+  contrast: (
+    50: white,
+    100: white,
+    200: white,
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: Black,
+    A200: Black,
+    A400: Black,
+    A700: Black,
+  )
+);
+
+$typoManrope: mat.define-typography-config(
+  $font-family: Manrope,
+  $headline:  mat.define-typography-level(3rem, 1, 700),
+);
+
+@include mat.core($typoManrope);
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$primary: mat.define-palette($mat-paj, 200);
+$accent: mat.define-palette($mat-paj, 800, 800, A400);
+
+// The warn palette is optional (defaults to red).
+$app-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$app-theme: mat.define-light-theme($primary, $accent, $app-warn);
+
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$briefcase-theme: mat.define-light-theme((
+  color: (
+    primary: $primary,
+    accent: $accent,
+    warn: $app-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($briefcase-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Manrope', "Helvetica Neue", sans-serif; }
+
+@import './../scss/global.scss';
+
+* {
+  --primary:  #222;
+  --accent: #2DB8E3;
+}
