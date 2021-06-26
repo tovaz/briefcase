@@ -1,4 +1,3 @@
-
 <mat-sidenav-container class="container"  fxFlexFill>
   <mat-sidenav #sidenav fxLayout="column" mode="side" opened="false" fxHide.gt-sm="true">
     <app-sidebar></app-sidebar>
@@ -8,6 +7,8 @@
     <app-toolbar [sidebar]="sidenav"></app-toolbar>
     <main>
       <router-outlet></router-outlet>
+      <app-footer></app-footer>
     </main>
   </mat-sidenav-content>
 </mat-sidenav-container>
+

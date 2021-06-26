@@ -1,3 +1,7 @@
+.first {
+    background: rgba(var(--background-rgb), 0.8);
+}
+
 .text-wrap {
   word-wrap: break-word;
   white-space: pre-wrap;
@@ -9,29 +13,45 @@
 }
 
 .technology {
-    background: #333;
+    //background: rgba(var(--background-rgb), 0.8);
     text-align: center;
 
     div {
         margin: 10px;
         img {
-            width: 90px;
+            width: 75px;
         }
     }
 }
 
 .portfolio {
-    background: #222;
-    color: #fff;
+    background: rgba(var(--background-rgb), 0.8);
+    //color: #fff;
     .name {
         width: 100%;
         position: absolute;
         bottom: 0;
-        background: linear-gradient(rgba(0,0,0, 0), rgba(0,0,0, 0.8), rgba(0,0,0, 0.9));;
+        background: linear-gradient(rgba(var(--background-rgb), 0), rgba(var(--background-rgb), 0.8), rgba(var(--background-rgb), 0.9));;
         padding: 5px;
-        color: #fff;
+        color: var(--foreground);
+        font-weight: bold;
         text-align: center;
         h3 { margin: 0; }
     }
 }
+
+mat-card:hover {
+    transition: transform 0.5s;
+    transform: scale(1.03);
+}
+
+mat-card {
+    transition: transform 0.2s;
+    transform: scale(1);
+    border-radius: 10px;
+    margin: 10px; 
+    padding: 0;
+}
+
+
 

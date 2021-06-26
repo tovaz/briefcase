@@ -1,25 +1,20 @@
 <mat-nav-list>
-  <mat-list-item>
-    <p matLine> Home </p>
-    <mat-icon matListIcon>folder</mat-icon>
-  </mat-list-item>
-
-  <mat-list-item>
-    <p matLine> Portfolio </p>
-    <mat-icon matListIcon>folder</mat-icon>
-  </mat-list-item>
-
-  <mat-list-item>
-    <p matLine> Blog </p>
-    <mat-icon matListIcon>folder</mat-icon>
-  </mat-list-item>
-  
-  <mat-list-item>
+  <mat-list-item routerLinkActive="active" routerLink="" [routerLinkActiveOptions]="{ exact: true }">
     <p matLine> About </p>
     <mat-icon matListIcon>folder</mat-icon>
   </mat-list-item>
 
-  <mat-list-item>
+  <mat-list-item routerLinkActive="active" routerLink="/portfolio">
+    <p matLine> Portfolio </p>
+    <mat-icon matListIcon>folder</mat-icon>
+  </mat-list-item>
+
+  <mat-list-item [class.active]="activeUrl == '/blog'" routerLink="/blog">
+    <p matLine> Blog </p>
+    <mat-icon matListIcon>folder</mat-icon>
+  </mat-list-item>
+
+  <mat-list-item [class.active]="activeUrl == '/contact'" routerLink="/contact">
     <p matLine> Contact </p>
     <mat-icon matListIcon>folder</mat-icon>
   </mat-list-item>

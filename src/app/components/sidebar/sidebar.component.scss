@@ -3,6 +3,16 @@ mat-list-item {
         color: #fff;
     }
     mat-icon {
-        color: var(--accent);
+        //color: var(--primary);
     }   
+}
+
+.active {
+    background: var(--primary);
+    mat-icon, p{
+        
+        color: #fff;
+    } 
+  -webkit-box-shadow: 0px 0px 53px -16px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 53px -16px rgba(0, 0, 0, 0.75);
 }

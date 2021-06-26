@@ -1,51 +1,51 @@
-<div style="background: #222; min-height: 350px;" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center center">
+<div class="first"  style=" min-height: 350px;" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center center">
     <div fxFlex="40px" fxLayout="column" fxLayout.xs="row" fxLayoutAlign="center">
         <img class="social-image" src="assets/images/facebook.svg" />
         <img class="social-image" src="assets/images/youtube.svg" />
         <img class="social-image" src="assets/images/linkedin.svg" />
         <img class="social-image" src="assets/images/github.svg" />
     </div>
-    <div style="color: #fff; text-align: center; padding: 20px;" fxFlex="33%" >
+    <div style=" text-align: center; padding: 20px;" fxFlex="33%" >
         <h1>designer</h1>
         <p class="text-wrap">UI/UX Designer with a passion for designing beautiful and functional user experiences.</p>
     </div>
     
     <div >
         <img src="assets/images/profile.png" style="height: 300px" />
-        <h1 style="color: #fff; text-align: center; font-size: 30px;">Hi, I'm William</h1>
+        <h1 style="text-align: center; font-size: 30px;">Hi, I'm William</h1>
     </div>
     
-    <div style="color: #fff; text-align: center; padding: 20px;" fxFlex="33%" >
+    <div style=" text-align: center; padding: 20px;" fxFlex="33%" >
         <h1>{{'< coder >'}}</h1>
         <p class="text-wrap">UI/UX Designer with a passion for designing beautiful and functional user experiences.</p>
     </div>
 </div>
 
 <mat-list class="technology" fxLayout="row wrap" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center center">
-    <div *ngFor="let item of techs" fxFlex="25%">
+    <div *ngFor="let item of techs" fxFlex="20%">
         <img src="{{url}}/{{ item.image.url }}" />
         <!--h3>{{ item.name }}</h3-->
     </div>
 </mat-list>
 
-<div class="portfolio" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center center">
+<div class="portfolio" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center center" fxFill>
     <div class="button" fxFlex="10%">
-        <h2>Briefcases</h2>
-        <button mat-flat-button color="accent">See more</button>
+        <h2>Portfolio</h2>
+        <button mat-raised-button color="primary" [routerLink]="'portfolio'">See more</button>
     </div>
 
-    <div class="portfolios" fxLayout="row" fxFlex.xs="100" fxFlex="80"  fxLayoutAlign="center" style="width: 100%;">
-        <mat-card *ngFor="let brief of briefs" fxFlex="35" fxFlex.xs="50" style="margin: 10px; padding: 0;" class="mat-elevation-z5">
+    <div class="portfolios" fxLayout="row wrap" fxFlex="80" fxLayout.xs="column"  fxLayoutAlign="center" style="width: 100%;" >
+        <mat-card *ngFor="let brief of briefs | slice:0:4;" fxFlex="30" style="" class="mat-elevation-z5" >
             <mat-carousel  
             timings="250ms ease-in" [autoplay]="true" [interval]="5000" xx="{ arrowForward: 'assets/images/forward.svg', arrowBack: 'assets/images/back.svg' }"
                 color="accent" maxWidth="auto" [proportion]="100" [slides]="5"
-                [loop]="true" [hideArrows]="false" [hideIndicators]="true"
+                [loop]="true" [hideArrows]="true" [hideIndicators]="true"
                 [useKeyboard]="true" [useMouseWheel]="false" orientation="ltr"
                 >
                 <mat-carousel-slide #matCarouselSlide *ngFor="let image of brief.images; let i = index" 
                     [image]="url + '/' + image.url" overlayColor="#00000040" [hideOverlay]="true" >
                     <div class="name">
-                        <h3>{{ brief.name }}</h3>
+                        <p>{{ brief.name }}</p>
                     </div>
                 </mat-carousel-slide>
             </mat-carousel>
@@ -53,3 +53,5 @@
         </mat-card>
     </div>
 </div>
+
+<app-contact></app-contact>

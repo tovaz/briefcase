@@ -14,7 +14,17 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
-import { MatCarouselModule } from '@ngmodule/material-carousel';
+import { MatCarouselModule } from '@ngbmodule/material-carousel';
+import { PortfolioComponent } from './portfolio/portfolio.component';
+import { PortfolioItemComponent } from './portfolio-item/portfolio-item.component';
+import { GalleryModule } from  'ng-gallery';
+import { GALLERY_CONFIG } from 'ng-gallery';
+import { ThemeService } from './services/theme.service';
+import { StyleManager } from './services/style-manager.service';
+import { ContactComponent } from './contact/contact.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FooterComponent } from './components/footer/footer.component';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 @NgModule({
   declarations: [
@@ -22,6 +32,10 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
     HomeComponent,
     ToolbarComponent,
     SidebarComponent,
+    PortfolioComponent,
+    PortfolioItemComponent,
+    ContactComponent,
+    FooterComponent,
   ],
   imports: [
     CommonModule,
@@ -31,10 +45,23 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
     MaterialModule,
     FlexLayoutModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AngularSvgIconModule.forRoot(),
+    GalleryModule.withConfig({
+      dots: true, imageSize: 'contain', autoPlay: true, gestures: true,
+    }),
     MatCarouselModule.forRoot(),
   ],
-  providers: [ 
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  providers: [ ThemeService, StyleManager,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    {
+      provide: GALLERY_CONFIG,
+      useValue: {
+        dots: true,
+        imageSize: 'cover'
+      }
+    }
   ],
   bootstrap: [AppComponent]
 })

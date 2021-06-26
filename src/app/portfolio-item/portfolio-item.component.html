@@ -1,0 +1,22 @@
+<div style="padding: 20px" >
+  <div fxLayout="column" fxLayoutAlign="center top">
+    <div  style="text-align: center;">
+      <h1>{{portfolio?.name}}</h1>
+      <h4>{{portfolio?.description}}</h4>
+    </div>
+  </div>
+  
+  <div class="technologies">
+    <h3>Technologies</h3>
+    <mat-list class="technology" fxLayout="row wrap" fxLayoutWrap fxLayoutGap="10px" fxLayoutAlign="center space-evenly">
+      <div *ngFor="let item of portfolio?.technologies" >
+          <img src="{{url}}/{{ item.image.url }}"/>
+          <!--h3>{{ item.name }}</h3-->
+      </div>
+    </mat-list>
+  </div>
+
+  <gallery [items]="images" [thumbPosition]="thrumbalPosition" imageSize="contain" *ngIf="portfolio"></gallery>
+
+  
+</div>

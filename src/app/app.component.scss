@@ -8,6 +8,12 @@
 
 mat-sidenav {
     width: 250px;
-    background: #222;
-    color: #fff;
+    background: #222 !important;
+    //color: var(--foreground);
+}
+
+:host {
+    .carousel {
+        cursor: pointer !important;
+    }
 }

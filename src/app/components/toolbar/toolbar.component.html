@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="dark">
   <div fxShow="true" fxHide.gt-sm="true">
     <button mat-icon-button class="example-icon" (click)="sidebar.toggle()">
       <mat-icon>menu</mat-icon>
@@ -8,10 +8,13 @@
   <span class="space"></span>
 
   <div fxShow="true" fxHide.lt-md="true">
-    <a mat-button routerLink="home">Home</a>
-    <a mat-button routerLink="/prices">Portfolio</a>
-    <a mat-button routerLink="/start-page">Blog</a>
-    <a mat-button routerLink="/offer">About</a>
-    <a mat-button routerLink="/contact">Contact</a>
+    <a mat-button routerLinkActive="active" routerLink="" [routerLinkActiveOptions]="{ exact: true }">About</a>
+    <a mat-button routerLinkActive="active" routerLink="portfolio">Portfolio</a>
+    <a mat-button routerLinkActive="active" routerLink="blog">Blog</a>
+    <a mat-button routerLinkActive="active" routerLink="contact">Contact</a>
   </div>
+  <button mat-button (click)="changeTheme()">
+    <svg-icon src="assets/images/dark.svg" [svgStyle]="{ 'width.px':20, 'fill':'#fff', 'height.px':20 }" *ngIf="currentTheme=='dark'" ></svg-icon>
+    <svg-icon src="assets/images/sun.svg" [svgStyle]="{ 'width.px':20, 'fill':'#fff', 'height.px':20 }" *ngIf="currentTheme!='dark'"></svg-icon>
+  </button>
  </mat-toolbar>

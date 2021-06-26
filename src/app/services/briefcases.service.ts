@@ -15,4 +15,12 @@ export class BriefcasesService {
       return r;
     })
   }
+
+  async getOne(id:any){
+    return await this.http.get(ENV.apiServer + '/briefcases/'+id).toPromise().then( r => {
+      return r;
+    })
+  }
+
+
 }
