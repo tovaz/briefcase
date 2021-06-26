@@ -14,6 +14,7 @@ export class ContactComponent implements OnInit {
   validationMessages:any = null;
   formData:any = null;
   sending = false;
+  sentEmail = false;
   constructor(private formBuilder: FormBuilder, private http: HttpClient) { 
     this.formData = createContactForm(this.formBuilder, null, null);
     this.validationMessages = this.formData.messages;
@@ -27,8 +28,8 @@ export class ContactComponent implements OnInit {
     if (this.contactForm.valid){
       this.sending = true;
       await this.http.post(ENV.apiServer + '/contact-forms/sendmail', this.contactForm.value).toPromise().then( res => {
-        console.log('RESPONSE SEND EMAIL', res);
-      })
+        this.sentEmail = true;
+      }).catch();
       this.sending = false;
     }
   }

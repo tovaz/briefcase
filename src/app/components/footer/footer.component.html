@@ -1,23 +1,30 @@
-<div class="footer" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between center" fxLayoutGap="3%">
+<div class="footer" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign.xs="center" fxLayoutAlign="space-between start" fxLayoutGap="3%">
     <div fxFlex="30%">
         <h2>Navigation</h2>
-        <p><a routerLink="/">About me</a></p>
-        <p><a routerLink="/portfolio">Portfolio</a></p>
-        <p><a routerLink="/portfolio">Blog</a></p>
-        <p><a routerLink="/portfolio">Contact</a></p>
+        <a routerLink="/" mat-button>About me</a>
+        <a routerLink="/portfolio" mat-button>Portfolio</a>
+        <p><a routerLink="/Blog" mat-button>Blog</a>
+        <a routerLink="/contact" mat-button>Contact</a></p>
     </div>
     <div fxFlex="30%">
         <h2>Last posts</h2>
-        <p><a routerLink="/">About me</a></p>
-        <p><a routerLink="/portfolio">Portfolio</a></p>
-        <p><a routerLink="/portfolio">Blog</a></p>
-        <p><a routerLink="/portfolio">Contact</a></p>
+        <mat-chip-list style="text-align: center;">
+            <mat-chip [selected]="true">Post #1</mat-chip>
+            <mat-chip [selected]="true">Post #2</mat-chip>
+            <mat-chip [selected]="true">Post #3</mat-chip>
+            <mat-chip [selected]="true">Post #4</mat-chip>
+        </mat-chip-list>
     </div>
-    <div fxFlex="30%">
+    <div fxFlex="30%" fxLayout="column">
         <h2>Contact me</h2>
-        <p><a routerLink="/">About me</a></p>
-        <p><a routerLink="/portfolio">Portfolio</a></p>
-        <p><a routerLink="/portfolio">Blog</a></p>
-        <p><a routerLink="/portfolio">Contact</a></p>
+        <h3><b>Email: </b>williamvaldez@outlook.com</h3>
+        <h3><b>Telefono: </b>+34 603 34 75 72</h3>
+        <div fxFlex="40px" fxLayout="row wrap" fxLayout.xs="row" fxLayoutAlign="center" fxLayoutGap="10px">
+            <!--img class="social-image" src="assets/images/facebook.svg" /-->
+            <a href="https://github.com/tovaz" target="_blank"><img class="social-image" src="assets/images/github.svg" /></a>
+            <a href="https://www.linkedin.com/in/william-valdez-97a47aa7/" target="_blank"><img class="social-image" src="assets/images/linkedin.svg" /></a>
+            <a href="https://www.behance.net/williamvaldez" target="_blank"><img class="social-image" src="assets/images/behance.svg" /></a>
+            <a href="https://www.youtube.com/channel/UCHNW8Dpl--qOnn5SXOH84iA" target="_blank"><img class="social-image" src="assets/images/youtube.svg" /></a>
+        </div>
     </div>
 </div>
