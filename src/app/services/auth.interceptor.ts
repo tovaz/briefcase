@@ -6,6 +6,8 @@ import { environment as ENV } from 'src/environments/environment';
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    return next.handle(req);
+
     const token = ENV.appToken;
     if (!token) {
         return next.handle(req);

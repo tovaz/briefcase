@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, HostBinding, OnInit } from '@angular/core';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { ThemeService } from './services/theme.service';
+import { environment as ENV } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -16,10 +17,11 @@ export class AppComponent implements OnInit, AfterViewInit{
   }
 
   ngOnInit(){
+    this.isDebug();
     this.themeService.themeChanged.subscribe( t => {
       this.changeTheme(t);
     })
-  } 
+  }
 
   ngAfterViewInit(){
     const currentTheme = this.themeService.currentTheme;
@@ -32,5 +34,10 @@ export class AppComponent implements OnInit, AfterViewInit{
   changeTheme(theme:any){
     this.overContainer.getContainerElement().classList.add(theme);
     this.componentClass = theme;
+  }
+
+  isDebug(){
+    let DEBUG = ENV.debug;
+    console.log = DEBUG ? console.log : () => { };
   }
 }
