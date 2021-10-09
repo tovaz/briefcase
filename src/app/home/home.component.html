@@ -10,12 +10,12 @@
         <h1>designer</h1>
         <p class="text-wrap">UI/UX Designer with a passion for designing beautiful and functional user experiences.</p>
     </div>
-    
+
     <div >
         <img src="assets/images/profile.png" style="height: 300px" />
         <h1 style="text-align: center; font-size: 30px;">Hi, I'm William</h1>
     </div>
-    
+
     <div style=" text-align: center; padding: 20px;" fxFlex="33%" >
         <h1>{{'< coder >'}}</h1>
         <p class="text-wrap">Front End Developer who focuses on writing clean, elegant and efficient code.</p>
@@ -36,21 +36,21 @@
     </div>
 
     <div class="portfolios" fxLayout="row wrap" fxFlex="80" fxLayout.xs="column"  fxLayoutAlign="center" style="width: 100%;" >
-        <mat-card *ngFor="let brief of briefs | slice:0:4;" fxFlex="30" style="" class="mat-elevation-z5" >
-            <mat-carousel  
+        <mat-card *ngFor="let brief of briefs | slice:0:4;" fxFlex="30" style="" class="mat-elevation-z5 pointer" >
+            <mat-carousel
             timings="250ms ease-in" [autoplay]="true" [interval]="5000" xx="{ arrowForward: 'assets/images/forward.svg', arrowBack: 'assets/images/back.svg' }"
                 color="accent" maxWidth="auto" [proportion]="100" [slides]="5"
                 [loop]="true" [hideArrows]="true" [hideIndicators]="true"
                 [useKeyboard]="true" [useMouseWheel]="false" orientation="ltr"
                 >
-                <mat-carousel-slide #matCarouselSlide *ngFor="let image of brief.images; let i = index" 
+                <mat-carousel-slide #matCarouselSlide *ngFor="let image of brief.images; let i = index"
                     [image]="url + '/' + image.url" overlayColor="#00000040" [hideOverlay]="true" >
                     <div class="name">
                         <p>{{ brief.name }}</p>
                     </div>
                 </mat-carousel-slide>
             </mat-carousel>
-            
+
         </mat-card>
     </div>
 </div>

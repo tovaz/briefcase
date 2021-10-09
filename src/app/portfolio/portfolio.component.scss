@@ -9,10 +9,18 @@
         color: var(--foreground);
         font-weight: bold;
         text-align: center;
+        font-size: 15px;
         h3 { margin: 0; }
+    }
+
+    .carousel-slide{
+      cursor: pointer !important;
+    }
+
+    mat-card {
+      cursor: pointer !important;
+      margin: 8px;
     }
 }
 
-mat-carousel {
-    cursor: initial !important;
-}
+

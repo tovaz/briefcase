@@ -1,6 +1,13 @@
+.pointer {
+  .carousel-slide {
+    cursor: pointer !important;
+  }
+}
+
 .carousel-slide {
     background-size: contain !important;
 }
+
 .mat-card{
     background: transparent;
     border-radius: 8px;

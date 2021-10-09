@@ -1,5 +1,5 @@
-<div style="padding: 20px">
-  <div fxLayout="column" fxLayoutAlign="center center">
+<div>
+  <div fxLayout="column" fxLayoutAlign="center center" style="margin-top: 20px">
     <div fxFlex="100" style="text-align: center;">
       <h1 >Portfolio</h1>
       <h4>Some of my works a long my short life :)</h4>
@@ -8,20 +8,23 @@
 
   <div class="portfolio" fxLayout="row wrap" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center center">
     <div class="portfolios" fxLayout="row wrap" fxLayout.xs="column" fxFlex="100"  fxLayoutAlign="center" style="width: 100%;" fxLayoutWrap >
-      <mat-card *ngFor="let brief of briefs" fxFlex="30" fxFlex.xs="100" style="margin: 10px; padding: 0;" class="mat-elevation-z5" (click)="openItem(brief)">
-        <mat-carousel  
-        timings="250ms ease-in" [autoplay]="true" [interval]="5000" xx="{ arrowForward: 'assets/images/forward.svg', arrowBack: 'assets/images/back.svg' }"
-            color="accent" maxWidth="auto" [proportion]="100" [slides]="5"
-            [loop]="true" [hideArrows]="true" [hideIndicators]="true"
-            [useKeyboard]="true" [useMouseWheel]="false" orientation="ltr"
-            >
-            <mat-carousel-slide #matCarouselSlide *ngFor="let image of brief.images; let i = index" 
-              [image]="url + '/' + image.url" overlayColor="#00000040" [hideOverlay]="true" style="cursor: initial;">
-              <div class="name">
-                <p>{{ brief.name }}</p>
-              </div>
-            </mat-carousel-slide>
-        </mat-carousel>
+      <mat-card *ngFor="let brief of briefs" fxFlex="30" fxFlex.xs="100" style="margin: 10px; padding: 0;" matRipple class="mat-elevation-z5 pointer" (click)="openItem(brief)">
+        <div>
+          <mat-carousel
+          timings="250ms ease-in" [autoplay]="true" [interval]="5000" xx="{ arrowForward: 'assets/images/forward.svg', arrowBack: 'assets/images/back.svg' }"
+              color="accent" maxWidth="auto" [proportion]="100" [slides]="5"
+              [loop]="true" [hideArrows]="true" [hideIndicators]="true"
+              [useKeyboard]="true" [useMouseWheel]="false" orientation="ltr"
+              >
+              <mat-carousel-slide #matCarouselSlide *ngFor="let image of brief.images; let i = index"
+                [image]="url + '/' + image.url" overlayColor="#00000040" [hideOverlay]="true" class="carousel-slide">
+
+              </mat-carousel-slide>
+          </mat-carousel>
+        </div>
+        <div class="name">
+          <p>{{ brief.name }}</p>
+        </div>
       </mat-card>
     </div>
   </div>

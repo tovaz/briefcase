@@ -1,0 +1,45 @@
+
+<div style="padding: 20px; height: 100vh;" #container>
+  <div fxFlex="100" fxLayout.md="row" fxLayout.xs="column">
+    <mat-card *ngIf="post" fxFlex.md="78" fxFlex.lg="78" fxFlex.xs="100" class="post-card">
+
+      <mat-card-header [ngStyle]="{'background': 'linear-gradient(rgba(0,0,'+color1+',0.7),rgba(0,'+color1+','+color2+',0.7)), url('+url + post.imageCover.url +') '}">
+        <h1 style="text-align: center;">{{ post.title }}</h1>
+        <div class="header-details" ngStyle.lg="'width': '30%'" ngStyle.md="'width': '30%'" ngStyle.xs="'border-radius': '0'; 'bottom':'0'">
+          <p style="margin: 0">Categoria: {{ post.category.name }}</p>
+          <p>{{ post.published_at | date }}</p>
+          <div class="technologies">
+            <img style="width: 20px;" src="{{ url + tech.image.url }}" *ngFor="let tech of post.technologies"/>
+          </div>
+        </div>
+      </mat-card-header>
+
+      <mat-card-content >
+        <div [innerHtml]="post.content"></div>
+      </mat-card-content>
+
+    </mat-card>
+
+    <mat-card *ngIf="post" ngClass.lg="right-bar" ngClass.md="right-bar" fxFlex.xs="100" class="profile-card" style="text-align: center;">
+      <mat-card-content >
+        <img src="assets/images/profile.png" style="height: 125px" />
+        <p>Soy William, autor y propietario del blog.
+          No pido mucho a cambio de leerme, pero puedes decirme ¡Hola! 👋 a través de mis redes sociales:</p>
+        <div fxFlex="100" fxLayout="row wrap" fxLayout.xs="row" fxLayoutAlign="center" fxLayoutGap="10px">
+            <a href="https://github.com/tovaz" target="_blank"><img class="social-image" src="assets/images/github.svg" /></a>
+            <a href="https://www.linkedin.com/in/william-valdez-97a47aa7/" target="_blank"><img class="social-image" src="assets/images/linkedin.svg" /></a>
+            <a href="https://www.behance.net/williamvaldez" target="_blank"><img class="social-image" src="assets/images/behance.svg" /></a>
+            <a href="https://www.youtube.com/channel/UCHNW8Dpl--qOnn5SXOH84iA" target="_blank"><img class="social-image" src="assets/images/youtube.svg" /></a>
+        </div>
+        <p>Si te gusta el contenido y/o quieres apoyarme, puedes hacerlo 👇</p>
+          <a mat-raised-button href="https://ko-fi.com/williamvaldez" color="warn">
+            <img src="assets/images/kofi.png" style="height: 22px;" />
+            Buy me a kofi
+          </a>
+      </mat-card-content>
+
+    </mat-card>
+</div>
+
+</div>
+<button mat-raised-button color="primary" (click)="toTop()">SUBIR</button>

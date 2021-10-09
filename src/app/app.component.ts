@@ -2,6 +2,7 @@ import { AfterViewInit, Component, HostBinding, OnInit } from '@angular/core';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { ThemeService } from './services/theme.service';
 import { environment as ENV } from 'src/environments/environment';
+import { ActivatedRoute, NavigationEnd, ParamMap, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,8 @@ export class AppComponent implements OnInit, AfterViewInit{
   @HostBinding('class') componentClass: any;
   title = 'briefcase';
 
-  constructor(private themeService: ThemeService, private overContainer: OverlayContainer){
+  constructor(private themeService: ThemeService, private overContainer: OverlayContainer,
+              private activeRoute: ActivatedRoute, private router:Router){
 
   }
 
@@ -20,7 +22,18 @@ export class AppComponent implements OnInit, AfterViewInit{
     this.isDebug();
     this.themeService.themeChanged.subscribe( t => {
       this.changeTheme(t);
-    })
+    });
+
+    this.activeRoute.paramMap.subscribe((params: ParamMap) => {
+
+    });
+
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+          return;
+      }
+      this.toTop();
+  });
   }
 
   ngAfterViewInit(){
@@ -39,5 +52,14 @@ export class AppComponent implements OnInit, AfterViewInit{
   isDebug(){
     let DEBUG = ENV.debug;
     console.log = DEBUG ? console.log : () => { };
+  }
+
+  onActivate(event:any, outlet:any=null){
+    //outlet.scrollTop = 0;
+  }
+
+  async toTop(){
+    const contentContainer = document.querySelector('.mat-sidenav-content') || window;
+    contentContainer.scrollTo({ top: 0, left: 0} );
   }
 }

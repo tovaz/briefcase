@@ -1,0 +1,70 @@
+<mat-toolbar >
+  <button mat-button [matMenuTriggerFor]="categoriesMenu">Categoria: {{ selectedCat.name }}</button>
+  <button mat-button [matMenuTriggerFor]="technologiesMenu">Tecnologias: {{ selectedTech.name }}</button>
+
+  <mat-menu #categoriesMenu="matMenu">
+    <button mat-menu-item *ngFor="let cat of categories"
+    (click)="filter(cat, null)" [class.active]="cat.id == selectedCat.id"
+    >
+      {{ cat.name }}
+    </button>
+  </mat-menu>
+
+  <mat-menu #technologiesMenu="matMenu">
+    <button mat-menu-item *ngFor="let tech of technologies"
+    (click)="filter(null, tech)" [class.active]="tech.id == selectedTech.id"
+    >
+    {{ tech.name }}
+    </button>
+  </mat-menu>
+
+  <div style="flex: 1 1 auto;"></div>
+  <div class="search mat-elevation-z3 ">
+    <input matInput type="text" [(ngModel)]="searchTerm"
+    placeholder="Buscar" (keydown.enter)="filter(selectedCat, selectedTech)"
+    [class.clear]="searchTerm!=''">
+    <button *ngIf="searchTerm!=''" matSuffix mat-icon-button aria-label="Clear" (click)="searchTerm=''; filter(selectedCat, selectedTech)">
+      <mat-icon>close</mat-icon>
+    </button>
+    <button matSuffix mat-icon-button aria-label="Clear" (click)="filter(selectedCat, selectedTech)">
+      <mat-icon>search</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+
+<div style="padding: 20px;     height: 100vh;">
+
+
+  <div fxLayout="column" fxLayoutAlign="center center">
+    <div fxFlex="100" style="text-align: center;">
+      <h2>Posts</h2>
+      <div *ngIf="posts?.length == 0">
+        <svg-icon src="assets/images/not-found.svg" [svgStyle]="{ 'width.px':50, 'fill':'var(--primary)', 'height.px':50 }"></svg-icon>
+        <p>No hay posts que coincidan con los filtros o termino de busqueda</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="portfolio" fxLayout="row wrap" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center center">
+    <div class="posts" fxLayout="row wrap" fxLayout.xs="column" fxFlex="100"  fxLayoutAlign="center" style="width: 100%;" fxLayoutWrap >
+      <mat-card *ngFor="let post of posts" matRipple fxFlex="25" fxFlex.xs="100" style="margin: 10px; " class="mat-elevation-z5" [routerLink]="['/blog/post/'+post.id]">
+        <div>
+          <img mat-card-image [src]="url + post.imageCover.url" alt="Post image" class="card-img" />
+          <mat-card-content>
+            <h2 style="margin: 0;">{{ post.title }}</h2>
+            <mat-card-subtitle>{{ post.category.name }}</mat-card-subtitle>
+            <div [innerHtml]="post.shortContent" class="text-wrap">
+            </div>
+            <p class="post-date">{{ post.published_at | date : 'M/d/yy, h:mm a' }}</p>
+          </mat-card-content>
+
+          <mat-card-actions>
+
+          </mat-card-actions>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+
+</div>
+

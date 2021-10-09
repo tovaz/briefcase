@@ -3,16 +3,14 @@
         <h2>Navigation</h2>
         <a routerLink="/" mat-button>About me</a>
         <a routerLink="/portfolio" mat-button>Portfolio</a>
-        <p><a routerLink="/Blog" mat-button>Blog</a>
+        <p><a routerLink="/blog" mat-button>Blog</a>
         <a routerLink="/contact" mat-button>Contact</a></p>
     </div>
     <div fxFlex="30%">
         <h2>Last posts</h2>
         <mat-chip-list style="text-align: center;">
-            <mat-chip [selected]="true">Post #1</mat-chip>
-            <mat-chip [selected]="true">Post #2</mat-chip>
-            <mat-chip [selected]="true">Post #3</mat-chip>
-            <mat-chip [selected]="true">Post #4</mat-chip>
+            <a mat-button mat-chip [selected]="true" *ngFor="let post of lastPosts" (click)="navigate('/blog/post/'+post.id)" >{{ post.title }}</a>
+            <a mat-button mat-chip [selected]="true" routerLink="/blog">Mas ...</a>
         </mat-chip-list>
     </div>
     <div fxFlex="30%" fxLayout="column">

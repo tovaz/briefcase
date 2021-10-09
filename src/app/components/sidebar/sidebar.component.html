@@ -1,4 +1,4 @@
-<mat-nav-list>
+<mat-nav-list #appSidebar>
   <mat-list-item routerLinkActive="active" routerLink="" [routerLinkActiveOptions]="{ exact: true }">
     <p matLine> About </p>
     <mat-icon matListIcon>folder</mat-icon>
@@ -9,12 +9,12 @@
     <mat-icon matListIcon>folder</mat-icon>
   </mat-list-item>
 
-  <mat-list-item [class.active]="activeUrl == '/blog'" routerLink="/blog">
+  <mat-list-item routerLinkActive="active" routerLink="/blog">
     <p matLine> Blog </p>
     <mat-icon matListIcon>folder</mat-icon>
   </mat-list-item>
 
-  <mat-list-item [class.active]="activeUrl == '/contact'" routerLink="/contact">
+  <mat-list-item routerLinkActive="active" routerLink="/contact">
     <p matLine> Contact </p>
     <mat-icon matListIcon>folder</mat-icon>
   </mat-list-item>

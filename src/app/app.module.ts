@@ -25,6 +25,8 @@ import { ContactComponent } from './contact/contact.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
 import { AngularSvgIconModule } from 'angular-svg-icon';
+import { BlogComponent } from './blog/blog.component';
+import { PostComponent } from './blog/post/post.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
     PortfolioItemComponent,
     ContactComponent,
     FooterComponent,
+    BlogComponent,
+    PostComponent,
   ],
   imports: [
     CommonModule,
