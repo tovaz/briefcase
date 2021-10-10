@@ -32,7 +32,7 @@
   </div>
 </mat-toolbar>
 
-<div style="padding: 20px;     height: 100vh;">
+<div style="padding: 20px; min-height: 100vh;" class="hide-on-init" animateOnScroll animationName="animated fadeIn">
 
 
   <div fxLayout="column" fxLayoutAlign="center center">
@@ -47,7 +47,11 @@
 
   <div class="portfolio" fxLayout="row wrap" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center center">
     <div class="posts" fxLayout="row wrap" fxLayout.xs="column" fxFlex="100"  fxLayoutAlign="center" style="width: 100%;" fxLayoutWrap >
-      <mat-card *ngFor="let post of posts" matRipple fxFlex="25" fxFlex.xs="100" style="margin: 10px; " class="mat-elevation-z5" [routerLink]="['/blog/post/'+post.id]">
+      <mat-card *ngFor="let post of posts"
+        matRipple fxFlex="25" fxFlex.xs="100" style="margin: 10px; "
+        class="mat-elevation-z5 hide-on-init" [routerLink]="['/blog/post/'+post.id]"
+        animateOnScroll animationName="animated zoomIn"
+        >
         <div>
           <img mat-card-image [src]="url + post.imageCover.url" alt="Post image" class="card-img" />
           <mat-card-content>

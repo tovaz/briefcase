@@ -1,5 +1,5 @@
-<div class="first"  style=" min-height: 350px;" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center center">
-    <div fxFlex="40px" fxLayout="column" fxLayout.xs="row" fxLayoutAlign="center">
+<div class="first hide-on-init"  style=" min-height: 350px;" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center center" animateOnScroll animationName="animated bounceIn">
+    <div class="hide-on-init"  fxFlex="40px" fxLayout="column" fxLayout.xs="row" fxLayoutAlign="center" animateOnScroll animationName="animated-d-05 animated zoomIn">
         <!--img class="social-image" src="assets/images/facebook.svg" /-->
         <a href="https://github.com/tovaz" target="_blank"><img class="social-image" src="assets/images/github.svg" /></a>
         <a href="https://www.linkedin.com/in/william-valdez-97a47aa7/" target="_blank"><img class="social-image" src="assets/images/linkedin.svg" /></a>
@@ -22,21 +22,21 @@
     </div>
 </div>
 
-<mat-list class="technology" fxLayout="row wrap" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center center">
+<mat-list class="technology hide-on-init" fxLayout="row wrap" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center center" animateOnScroll animationName="animated-d-05 animated bounceInUp">
     <div *ngFor="let item of techs" fxFlex="20%">
         <img src="{{url}}/{{ item.image.url }}" />
         <!--h3>{{ item.name }}</h3-->
     </div>
 </mat-list>
 
-<div class="portfolio" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center center" fxFill>
+<div class="portfolio hide-on-init" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center center" animateOnScroll animationName="animated bounceInUp">
     <div class="button" fxFlex="10%">
         <h2>Portfolio</h2>
         <button mat-raised-button color="primary" [routerLink]="'portfolio'">See more</button>
     </div>
 
     <div class="portfolios" fxLayout="row wrap" fxFlex="80" fxLayout.xs="column"  fxLayoutAlign="center" style="width: 100%;" >
-        <mat-card *ngFor="let brief of briefs | slice:0:4;" fxFlex="30" style="" class="mat-elevation-z5 pointer" >
+        <mat-card *ngFor="let brief of briefs | slice:0:4;" fxFlex="30" style="" class="mat-elevation-z5 pointer" [routerLink]="['/portfolio/'+brief.id]">
             <mat-carousel
             timings="250ms ease-in" [autoplay]="true" [interval]="5000" xx="{ arrowForward: 'assets/images/forward.svg', arrowBack: 'assets/images/back.svg' }"
                 color="accent" maxWidth="auto" [proportion]="100" [slides]="5"
@@ -55,4 +55,4 @@
     </div>
 </div>
 
-<app-contact></app-contact>
+<app-contact class="hide-on-init" animateOnScroll animationName="animated fadeIn"></app-contact>

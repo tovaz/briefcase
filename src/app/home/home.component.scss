@@ -13,7 +13,7 @@
 }
 
 .technology {
-    //background: rgba(var(--background-rgb), 0.8);
+    min-height: 100vh;
     text-align: center;
 
     div {
@@ -26,7 +26,7 @@
 
 .portfolio {
     background: rgba(var(--background-rgb), 0.8);
-    //color: #fff;
+    min-height: 100vh;
     .name {
         width: 100%;
         position: absolute;
@@ -49,7 +49,7 @@ mat-card {
     transition: transform 0.2s;
     transform: scale(1);
     border-radius: 10px;
-    margin: 10px; 
+    margin: 10px;
     padding: 0;
 }
 

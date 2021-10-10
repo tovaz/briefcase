@@ -1,6 +1,6 @@
-<div >
+<div class="hide-on-init" animateOnScroll animationName="animated fadeIn">
   <div fxLayout="column" fxLayoutAlign="center top" style="margin-top: 20px; padding: 20px">
-    <div  style="text-align: center;">
+    <div  style="text-align: center;" >
       <h1>{{portfolio?.name}}</h1>
       <h4>{{portfolio?.description}}</h4>
     </div>
@@ -8,7 +8,10 @@
 
   <div class="technologies">
     <h3>Technologies</h3>
-    <mat-list class="technology" fxLayout="row wrap" fxLayoutWrap fxLayoutGap="10px" fxLayoutAlign="center space-evenly">
+    <mat-list class="technology hide-on-init" fxLayout="row wrap"
+    fxLayoutWrap fxLayoutGap="10px" fxLayoutAlign="center space-evenly"
+    animateOnScroll animationName="animated zoomIn"
+    >
       <div *ngFor="let item of portfolio?.technologies" >
           <img src="{{url}}/{{ item.image.url }}"/>
           <!--h3>{{ item.name }}</h3-->
@@ -16,7 +19,7 @@
     </mat-list>
   </div>
 
-  <div style="padding: 20px 10px">
+  <div style="padding: 20px 10px" class="hide-on-init" animateOnScroll animationName="animated animated-d-05 zoomIn">
     <gallery [items]="images" [thumbPosition]="thrumbalPosition" imageSize="contain" *ngIf="portfolio"></gallery>
   </div>
 

@@ -27,6 +27,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { BlogComponent } from './blog/blog.component';
 import { PostComponent } from './blog/post/post.component';
+import { AnimateOnScrollModule } from 'ng2-animate-on-scroll';
+
 
 @NgModule({
   declarations: [
@@ -56,6 +58,7 @@ import { PostComponent } from './blog/post/post.component';
       dots: true, imageSize: 'contain', autoPlay: true, gestures: true,
     }),
     MatCarouselModule.forRoot(),
+    AnimateOnScrollModule.forRoot()
   ],
   providers: [ ThemeService, StyleManager,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

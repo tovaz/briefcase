@@ -1,20 +1,20 @@
-<div class="contact" fxLayout="row"  fxLayoutAlign="center center" fxLayout.xs="column">
-    <div fxFlex="30" style="text-align: center;" *ngIf="!sentEmail">
+<div class="contact hide-on-init" fxLayout="row"  fxLayoutAlign="center center" fxLayout.xs="column" animateOnScroll animationName="animated fadeIn">
+    <div fxFlex="25" style="text-align: center;" *ngIf="!sentEmail">
         <h2 >Get in touch with me</h2>
-        <img src="assets/images/contact.svg" style="height: 100px; " fxHide.xs/>
+        <img src="assets/images/contact.svg" style="height: 100px; " />
     </div>
 
     <div fxFlex="100" *ngIf="sentEmail" style="text-align: center;">
         <h2>Thank you for contact me, I will answer you asap ...</h2>
         <img src="assets/images/thank-you.svg" style="height: 100px; " fxHide.xs/>
     </div>
-    
-    <form [formGroup]="contactForm"  fxLayout="column" fxLayoutAlign="space-between center"  fxLayoutGap="10px" fxFlex="50" 
+
+    <form [formGroup]="contactForm"  fxLayout="column" fxLayoutAlign="space-between center"  fxLayoutGap="10px" fxFlex="50"
           fxFlex.xs="100" fxFill (ngSubmit)="sendMail()" *ngIf="!sentEmail">
         <div fxFlex="50" fxLayout="row" fxLayout.xs="column"  fxLayoutGap="10px"  fxLayoutAlign="start" fxFill fxFlex.xs="100">
             <div fxFlex="50">
                 <mat-form-field appearance="fill"   >
-                    <mat-label>Name</mat-label>
+                    <mat-label>Name *</mat-label>
                     <input matInput formControlName="name">
                 </mat-form-field>
             </div>
@@ -29,17 +29,17 @@
 
         <div fxFlex="50" fxLayout="column" fxLayoutGap="10px"  fxFill fxFlex.xs="100">
             <mat-form-field appearance="fill"  fxFlex="50" >
-                <mat-label>Email</mat-label>
+                <mat-label>Email *</mat-label>
                 <input matInput formControlName="email" type="email">
             </mat-form-field>
         </div>
 
         <div fxFlex="50" fxLayout="column" fxLayoutGap="10px"  fxFill fxFlex.xs="100">
             <mat-form-field appearance="fill"  fxFlex="50" >
-                <mat-label>Message</mat-label>
+                <mat-label>Message *</mat-label>
                 <textarea matInput formControlName="message"></textarea>
             </mat-form-field>
-            
+
             <div fxFlex="100">
                 <ng-container *ngFor="let item of validationMessages">
                     <ng-container *ngFor="let validation of item.validations">
@@ -52,6 +52,6 @@
                 <mat-spinner *ngIf="sending" [diameter]="30" style="margin:0 auto;"></mat-spinner> <span [hidden]="sending">Send</span>
             </button>
         </div>
-        
+
     </form>
 </div>

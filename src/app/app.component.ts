@@ -62,4 +62,5 @@ export class AppComponent implements OnInit, AfterViewInit{
     const contentContainer = document.querySelector('.mat-sidenav-content') || window;
     contentContainer.scrollTo({ top: 0, left: 0} );
   }
+
 }
