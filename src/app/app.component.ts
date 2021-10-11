@@ -4,6 +4,7 @@ import { ThemeService } from './services/theme.service';
 import { environment as ENV } from 'src/environments/environment';
 import { ActivatedRoute, NavigationEnd, ParamMap, Router } from '@angular/router';
 
+declare let gtag: Function;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -32,6 +33,11 @@ export class AppComponent implements OnInit, AfterViewInit{
       if (!(evt instanceof NavigationEnd)) {
           return;
       }
+
+      gtag('config', 'G-W7EC7Y6LVC',
+      {
+        'page_path': evt.urlAfterRedirects
+      } );
       this.toTop();
   });
   }
