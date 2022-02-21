@@ -23,6 +23,10 @@
 </div>
 
 <mat-list class="technology hide-on-init" fxLayout="row wrap" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center center" animateOnScroll animationName="animated-d-05 animated bounceInUp">
+  <div style="padding: 25px; display: flex; justify-content: center;" *ngIf="!techs">
+    <mat-spinner color="primary" style="transform: scale(0.5);"></mat-spinner>
+  </div>
+
     <div *ngFor="let item of techs" fxFlex="20%">
         <img src="{{url}}/{{ item.image.url }}" />
         <!--h3>{{ item.name }}</h3-->
@@ -36,6 +40,9 @@
     </div>
 
     <div class="portfolios" fxLayout="row wrap" fxFlex="80" fxLayout.xs="column"  fxLayoutAlign="center" style="width: 100%;" >
+      <div style="padding: 25px; display: flex; justify-content: center;" *ngIf="!briefs">
+        <mat-spinner color="primary" style="transform: scale(0.5);"></mat-spinner>
+      </div>
         <mat-card *ngFor="let brief of briefs | slice:0:4;" fxFlex="30" style="" class="mat-elevation-z5 pointer" [routerLink]="['/portfolio/'+brief.id]">
             <mat-carousel
             timings="250ms ease-in" [autoplay]="true" [interval]="5000" xx="{ arrowForward: 'assets/images/forward.svg', arrowBack: 'assets/images/back.svg' }"

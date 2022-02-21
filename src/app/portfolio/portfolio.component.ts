@@ -12,12 +12,14 @@ export class PortfolioComponent implements OnInit {
 
   constructor(private briefsService: BriefcasesService, private route: Router) { }
   briefs = null;
-  url = ENV.uploadUrl; 
+  url = ENV.uploadUrl;
   ngOnInit(): void {
     this.briefsService.get().then( (r:any) => {
       console.log('BRIEFCASES RETURNED', r);
-      if (r)
+      if (r){
+        r = r.sort( (a: any, b: any) => b.id - a.id);
         this.briefs = r;
+      }
     });
   }
 

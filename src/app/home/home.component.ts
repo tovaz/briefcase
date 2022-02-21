@@ -14,11 +14,11 @@ export class HomeComponent implements OnInit {
   techs = null;
   briefs = null;
   url = ENV.uploadUrl;
-  
+
   constructor(private techService: TechnologiesService, private briefsService: BriefcasesService ) { }
 
   ngOnInit() {
-    
+
     this.techService.get().then( (r:any) => {
       console.log('TECH RETURNED', r);
       if (r)
@@ -27,8 +27,10 @@ export class HomeComponent implements OnInit {
 
     this.briefsService.get().then( (r:any) => {
       console.log('BRIEFCASES RETURNED', r);
-      if (r)
+      if (r){
+        r = r.sort( (a: any, b: any) => b.id - a.id);
         this.briefs = r;
+      }
     });
   }
 

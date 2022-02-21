@@ -17,8 +17,9 @@ export class PortfolioItemComponent implements OnInit, AfterViewInit {
   images: GalleryItem[] = [];
   url = environment.uploadUrl;
   thrumbalPosition:'top' | 'left' | 'right' | 'bottom' = 'top';
+  pdfs:any = [];
 
-  constructor(private actRoute: ActivatedRoute, private briefService: BriefcasesService) { 
+  constructor(private actRoute: ActivatedRoute, private briefService: BriefcasesService) {
     this.portfolioId = this.actRoute.snapshot.params.id;
   }
 
@@ -29,9 +30,12 @@ export class PortfolioItemComponent implements OnInit, AfterViewInit {
 
     if (this.portfolio){
       this.portfolio.images.forEach( (img:any) => {
-        this.images.push(new ImageItem({ src: this.url + img.url, thumb: this.url + img.formats.thumbnail.url }));
+        if (img.ext != '.pdf')
+          this.images.push(new ImageItem({ src: this.url + img.url, thumb: this.url + img.formats.thumbnail.url }));
+        else
+          this.pdfs.push(img);
       })
-      
+      console.log('PDFS', this.pdfs);
     }
   }
 
@@ -43,7 +47,7 @@ export class PortfolioItemComponent implements OnInit, AfterViewInit {
   onResize(event:any) {
     this.screen.width = window.innerWidth;
     this.screen.height = window.innerHeight;
-    if (this.screen.width > 600) 
+    if (this.screen.width > 600)
       this.thrumbalPosition = 'left';
     else
       this.thrumbalPosition = 'bottom';

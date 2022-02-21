@@ -28,6 +28,7 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
 import { BlogComponent } from './blog/blog.component';
 import { PostComponent } from './blog/post/post.component';
 import { AnimateOnScrollModule } from 'ng2-animate-on-scroll';
+import { DirectivesModule } from './directives/directives.module';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { AnimateOnScrollModule } from 'ng2-animate-on-scroll';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    DirectivesModule,
     AngularSvgIconModule.forRoot(),
     GalleryModule.withConfig({
       dots: true, imageSize: 'contain', autoPlay: true, gestures: true,

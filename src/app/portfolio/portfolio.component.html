@@ -1,4 +1,8 @@
 <div style="min-height: 100vh;" class="hide-on-init" animateOnScroll animationName="animated fadeIn">
+  <div style="padding: 25px; display: flex; justify-content: center;" *ngIf="!briefs">
+    <mat-spinner color="primary" style="transform: scale(0.5);"></mat-spinner>
+  </div>
+
   <div fxLayout="column" fxLayoutAlign="center center" style="margin-top: 20px">
     <div fxFlex="100" style="text-align: center;">
       <h1 >Portfolio</h1>
