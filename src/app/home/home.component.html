@@ -22,7 +22,7 @@
     </div>
 </div>
 
-<mat-list class="technology hide-on-init" fxLayout="row wrap" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center center" animateOnScroll animationName="animated-d-05 animated bounceInUp">
+<mat-list class="technology hide-on-init" fxLayout="row wrap" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center center" animateOnScroll animationName="animated-d-05 animated bounceIn" [offset]="-50">
   <div style="padding: 25px; display: flex; justify-content: center;" *ngIf="!techs">
     <mat-spinner color="primary" style="transform: scale(0.5);"></mat-spinner>
   </div>
@@ -33,7 +33,7 @@
     </div>
 </mat-list>
 
-<div class="portfolio hide-on-init" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center center" animateOnScroll animationName="animated bounceInUp">
+<div class="portfolio " fxLayout="row wrap" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center center"  animationName="animated bounceInUp">
     <div class="button" fxFlex="10%">
         <h2>Portfolio</h2>
         <button mat-raised-button color="primary" [routerLink]="'portfolio'">See more</button>
