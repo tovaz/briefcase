@@ -6,14 +6,14 @@
 // Plus imports for other components in your app.
 
 
-$typoManrope: mat.define-typography-config(
-  $font-family: Manrope,
+$fontFamily: mat.define-typography-config(
+  $font-family: Roboto,
   $headline:  mat.define-typography-level(3rem, 1, 700),
 );
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
-@include mat.core($typoManrope);
+@include mat.core($fontFamily);
 
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
@@ -44,7 +44,7 @@ $briefcase-theme: mat.define-light-theme((
 html, body { height: 100%; }
 body {
   margin: 0;
-  font-family: 'Manrope', "Helvetica Neue", sans-serif;
+  font-family: "Roboto", "Helvetica Neue", sans-serif;
   background: #222;
 }
 
