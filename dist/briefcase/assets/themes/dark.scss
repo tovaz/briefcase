@@ -36,12 +36,12 @@
     )
 );
 
-$typoManrope: mat.define-typography-config(
-  $font-family: Manrope,
+$fontFamily: mat.define-typography-config(
+  $font-family: Roboto,
   $headline:  mat.define-typography-level(3rem, 1, 700),
 );
 
-  @include mat.core($typoManrope);
+  @include mat.core($fontFamily);
 
   $primary: mat.define-palette($palete, 900);
   $accent: mat.define-palette($palete, 400);
@@ -65,4 +65,8 @@ $typoManrope: mat.define-typography-config(
   --foreground: #fff;
   --background-rgb: 33, 33, 33;
   --foreground-rgb: 255, 255, 255;
+  a {
+    color: #4d88fd;
+    text-decoration: none;
+  }
 }
