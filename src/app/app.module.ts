@@ -14,7 +14,6 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
-import { MatCarouselModule } from '@ngbmodule/material-carousel';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { PortfolioItemComponent } from './portfolio-item/portfolio-item.component';
 import { GalleryModule } from  'ng-gallery';
@@ -59,7 +58,7 @@ import { DirectivesModule } from './directives/directives.module';
     GalleryModule.withConfig({
       dots: true, imageSize: 'contain', autoPlay: true, gestures: true,
     }),
-    MatCarouselModule.forRoot(),
+    // MatCarouselModule.forRoot(),
     AnimateOnScrollModule.forRoot()
   ],
   providers: [ ThemeService, StyleManager,
