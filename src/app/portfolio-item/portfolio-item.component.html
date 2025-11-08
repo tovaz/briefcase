@@ -25,10 +25,10 @@
 
   <div class="technologies">
     <h3>Technologies</h3>
-    <mat-list class="technology hide-on-init fx-row fx-wrap fx-gap-16 fx-justify-center fx-align-space-evenly"
+    <mat-list class="technology hide-on-init fx-flex fx-row fx-wrap fx-gap-16 fx-center fx-justify-center fx-align-center"
     animateOnScroll animationName="animated zoomIn"
     >
-      <div *ngFor="let item of portfolio?.technologies" >
+      <div class="" *ngFor="let item of portfolio?.technologies" >
           <img src="{{url}}/{{ item.image.url }}"/>
           <!--h3>{{ item.name }}</h3-->
       </div>
