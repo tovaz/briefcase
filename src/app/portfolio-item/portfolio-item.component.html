@@ -4,8 +4,8 @@
   </div>
 
 
-  <div fxLayout="column" fxLayoutAlign="center top" style="margin-top: 20px; padding: 20px">
-    <div  style="text-align: center;" >
+  <div class="fx-column fx-align-center" style="margin-top: 20px; padding: 20px">
+    <div style="text-align: center;">
       <h1>{{portfolio?.name}}</h1>
       <h4>{{portfolio?.description}}</h4>
     </div>
@@ -15,16 +15,17 @@
     <mat-card-title style="font-size: 20px;">Case study of the app</mat-card-title>
     <p>As part of Google Certification Program, I completed this design with all cycles of the design process. <br/>
       <b>Empathize, Define, Ideate, Prototype and Test</b></p>
-    <a *ngFor="let item of pdfs" href="{{url}}/{{ item.url }}" mat-raised-button color="primary">
-      <span class="material-icons">picture_as_pdf</span>
-      Download case study
-    </a>
+    <div class="fx-row fx-gap-16">
+      <a *ngFor="let item of pdfs" href="{{url}}/{{ item.url }}" mat-raised-button color="primary">
+        <span class="material-icons">picture_as_pdf</span>
+        Download case study
+      </a>
+    </div>
   </mat-card>
 
   <div class="technologies">
     <h3>Technologies</h3>
-    <mat-list class="technology hide-on-init" fxLayout="row wrap"
-    fxLayoutWrap fxLayoutGap="10px" fxLayoutAlign="center space-evenly"
+    <mat-list class="technology hide-on-init fx-row fx-wrap fx-gap-16 fx-justify-center fx-align-space-evenly"
     animateOnScroll animationName="animated zoomIn"
     >
       <div *ngFor="let item of portfolio?.technologies" >

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { UntypedFormBuilder } from '@angular/forms';
 import { createContactForm } from './contact.form';
 import { environment as ENV } from './../../environments/environment';
 
@@ -15,7 +15,7 @@ export class ContactComponent implements OnInit {
   formData:any = null;
   sending = false;
   sentEmail = false;
-  constructor(private formBuilder: FormBuilder, private http: HttpClient) { 
+  constructor(private formBuilder: UntypedFormBuilder, private http: HttpClient) { 
     this.formData = createContactForm(this.formBuilder, null, null);
     this.validationMessages = this.formData.messages;
     this.contactForm = this.formData.form;

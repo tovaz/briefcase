@@ -1,12 +1,12 @@
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 
 //_ Form field names, from db request
-export const createContactForm = (formBuilder:FormBuilder, translate:any, data=null) => { 
+export const createContactForm = (formBuilder:UntypedFormBuilder, translate:any, data=null) => { 
     let contactForm = formBuilder.group({
-      email: new FormControl({value: '', disabled: false}, [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
-      name: new FormControl({value: '', disabled: false},  Validators.required),
-      phone: new FormControl({value: '', disabled: false}),
-      message: new FormControl({value: '', disabled: false}, Validators.required),
+      email: new UntypedFormControl({value: '', disabled: false}, [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
+      name: new UntypedFormControl({value: '', disabled: false},  Validators.required),
+      phone: new UntypedFormControl({value: '', disabled: false}),
+      message: new UntypedFormControl({value: '', disabled: false}, Validators.required),
     } ); //{ validators: repeatFn });
 
     //_ Set password_repeat validators error type
@@ -65,7 +65,7 @@ export const createContactForm = (formBuilder:FormBuilder, translate:any, data=n
     
   }
 
-  function repeatFn(formGroup: FormGroup) {
+  function repeatFn(formGroup: UntypedFormGroup) {
     /*if (formGroup.get('password').value != '')
       return formGroup.get('password').value === formGroup.get('password_repeat').value ? null : { valid: true };
     else

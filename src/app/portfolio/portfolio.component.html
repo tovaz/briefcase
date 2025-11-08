@@ -3,32 +3,33 @@
     <mat-spinner color="primary" style="transform: scale(0.5);"></mat-spinner>
   </div>
 
-  <div fxLayout="column" fxLayoutAlign="center center" style="margin-top: 20px">
-    <div fxFlex="100" style="text-align: center;">
-      <h1 >Portfolio</h1>
+  <div class="fx-column fx-center" style="margin-top: 20px">
+    <div class="fx-flex-100" style="text-align: center;">
+      <h1>Portfolio</h1>
       <h4>Some of my works a long my short life :)</h4>
     </div>
   </div>
 
-  <div class="portfolio" fxLayout="row wrap" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center center">
-    <div class="portfolios" fxLayout="row wrap" fxLayout.xs="column" fxFlex="100"  fxLayoutAlign="center" style="width: 100%;" fxLayoutWrap >
-      <mat-card *ngFor="let brief of briefs" fxFlex="30" fxFlex.xs="100"
+  <div class="portfolio fx-row fx-wrap fx-column-xs fx-center fx-gap-8">
+    <div class="portfolios fx-row fx-wrap fx-column-xs fx-flex-100 fx-center" style="width: 100%;">
+      <mat-card *ngFor="let brief of briefs"
+      class="fx-flex-30 fx-grid fx-grid-cols-4 mat-elevation-z5 pointer hide-on-init"
       style="margin: 10px; padding: 0;" matRipple
-      class="mat-elevation-z5 pointer hide-on-init"
       animateOnScroll animationName="animated-d-05 animated zoomIn"
       (click)="openItem(brief)">
-        <div>
-          <mat-carousel
-          timings="250ms ease-in" [autoplay]="true" [interval]="5000" xx="{ arrowForward: 'assets/images/forward.svg', arrowBack: 'assets/images/back.svg' }"
-              color="accent" maxWidth="auto" [proportion]="100" [slides]="5"
-              [loop]="true" [hideArrows]="true" [hideIndicators]="true"
-              [useKeyboard]="true" [useMouseWheel]="false" orientation="ltr"
-              >
-              <mat-carousel-slide #matCarouselSlide *ngFor="let image of brief.images; let i = index"
-                [image]="url + '/' + image.url" overlayColor="#00000040" [hideOverlay]="true" class="carousel-slide">
-
-              </mat-carousel-slide>
-          </mat-carousel>
+        <div style="height: 300px;">
+          <app-image-slider
+            [images]="getImageUrls(brief.images)"
+            [config]="{
+              autoplay: true,
+              delay: 2000,
+              loop: true,
+              effect: 'slide',
+              showNavigation: false,
+              showPagination: true,
+              disableOnInteraction: false
+            }">
+          </app-image-slider>
         </div>
         <div class="name">
           <p>{{ brief.name }}</p>

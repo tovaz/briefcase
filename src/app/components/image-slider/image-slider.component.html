@@ -1,0 +1,14 @@
+<swiper-container
+  [attr.slides-per-view]="1"
+  [attr.autoplay]="true"
+  [attr.delay]="config.delay"
+  [attr.loop]="config.loop"
+  [attr.effect]="config.effect"
+  [attr.navigation]="config.showNavigation"
+  [attr.pagination]="config.showPagination"
+  [attr.disable-on-interaction]="config.disableOnInteraction"
+  class="image-slider">
+  <swiper-slide *ngFor="let image of images">
+    <img [src]="image" [alt]="'Slide image'" class="slide-image">
+  </swiper-slide>
+</swiper-container>

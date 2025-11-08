@@ -13,7 +13,7 @@
 }
 
 .technology {
-    min-height: 100vh;
+    //background: rgba(var(--background-rgb), 0.8);
     text-align: center;
 
     div {
@@ -26,7 +26,7 @@
 
 .portfolio {
     background: rgba(var(--background-rgb), 0.8);
-    min-height: 100vh;
+    //color: #fff;
     .name {
         width: 100%;
         position: absolute;
@@ -38,6 +38,18 @@
         text-align: center;
         h3 { margin: 0; }
     }
+}
+
+.portfolios {
+  width: 80%;
+
+  mat-card {
+    // min-height: 25%;
+    // min-width: 25%;
+    height: 100%;
+    width: 100%;
+    // flex: 0 !important;
+  }
 }
 
 mat-card:hover {
@@ -55,3 +67,12 @@ mat-card {
 
 
 
+.slider {
+  width: 100%;
+}
+
+@media screen and (max-width: 599px) {
+  .portfolio-card {
+    width: 100%;
+  }
+}

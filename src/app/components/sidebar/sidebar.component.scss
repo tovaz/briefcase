@@ -1,18 +1,30 @@
 mat-list-item {
-    mat-icon, p {
+    mat-icon, span {
         color: #fff;
     }
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
     mat-icon {
-        //color: var(--primary);
-    }   
+        font-size: 20px;
+        width: 20px;
+        height: 20px;
+    }
+
+    span {
+        font-size: 16px;
+    }
 }
 
 .active {
     background: var(--primary);
-    mat-icon, p{
-        
+    mat-icon, span {
         color: #fff;
-    } 
-  -webkit-box-shadow: 0px 0px 53px -16px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 53px -16px rgba(0, 0, 0, 0.75);
+    }
+    -webkit-box-shadow: 0px 0px 53px -16px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 53px -16px rgba(0, 0, 0, 0.75);
 }

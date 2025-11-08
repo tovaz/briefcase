@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
 import { CommonModule } from "@angular/common";
+import { HttpClient, provideHttpClient } from '@angular/common/http';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 import { AuthInterceptor } from './services/auth.interceptor';
+import { MATERIAL_SANITY_CHECKS } from '@angular/material/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -11,10 +14,9 @@ import { MaterialModule } from './material/material.module';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 
-import { FlexLayoutModule } from '@angular/flex-layout';
+// import { FlexLayoutModule } from '@angular/flex-layout';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
-import { MatCarouselModule } from '@ngbmodule/material-carousel';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { PortfolioItemComponent } from './portfolio-item/portfolio-item.component';
 import { GalleryModule } from  'ng-gallery';
@@ -27,8 +29,10 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { BlogComponent } from './blog/blog.component';
 import { PostComponent } from './blog/post/post.component';
-import { AnimateOnScrollModule } from 'ng2-animate-on-scroll';
+// import { AnimateOnScrollModule } from 'ng2-animate-on-scroll';
 import { DirectivesModule } from './directives/directives.module';
+import { ImageSliderModule } from './components/image-slider/image-slider.module';
+import { MatIconRegistry } from '@angular/material/icon';
 
 
 @NgModule({
@@ -50,19 +54,22 @@ import { DirectivesModule } from './directives/directives.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FlexLayoutModule,
+    // FlexLayoutModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     DirectivesModule,
+    ImageSliderModule,
     AngularSvgIconModule.forRoot(),
     GalleryModule.withConfig({
       dots: true, imageSize: 'contain', autoPlay: true, gestures: true,
     }),
-    MatCarouselModule.forRoot(),
-    AnimateOnScrollModule.forRoot()
+    // MatCarouselModule.forRoot(),
+    // AnimateOnScrollModule.forRoot()
   ],
-  providers: [ ThemeService, StyleManager,
+  providers: [
+    ThemeService,
+    StyleManager,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     {
       provide: GALLERY_CONFIG,
@@ -70,6 +77,15 @@ import { DirectivesModule } from './directives/directives.module';
         dots: true,
         imageSize: 'cover'
       }
+    },
+    {
+      provide: MatIconRegistry,
+      // useFactory: (sanitizer: DomSanitizer) => {
+      //   const registry = new MatIconRegistry(document.injector.get(HttpClient), sanitizer, document);
+      //   registry.setDefaultFontSetClass('material-icons');
+      //   return registry;
+      // },
+      deps: [DomSanitizer]
     }
   ],
   bootstrap: [AppComponent]

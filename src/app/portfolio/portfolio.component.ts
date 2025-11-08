@@ -27,4 +27,8 @@ export class PortfolioComponent implements OnInit {
     this.route.navigate(['portfolio/'+item.id]);
   }
 
+  getImageUrls(images: any[]): string[] {
+    return images.map(img => this.url + '/' + img.url);
+  }
+
 }

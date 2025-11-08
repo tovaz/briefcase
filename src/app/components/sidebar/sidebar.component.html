@@ -1,21 +1,29 @@
 <mat-nav-list #appSidebar>
   <mat-list-item routerLinkActive="active" routerLink="" [routerLinkActiveOptions]="{ exact: true }">
-    <p matLine> About </p>
-    <mat-icon matListIcon>folder</mat-icon>
+    <div class="menu-item">
+      <mat-icon fontSet="material-icons-outlined">person</mat-icon>
+      <span> About </span>
+    </div>
   </mat-list-item>
 
   <mat-list-item routerLinkActive="active" routerLink="/portfolio">
-    <p matLine> Portfolio </p>
-    <mat-icon matListIcon>folder</mat-icon>
+    <div class="menu-item">
+      <mat-icon fontSet="material-icons-outlined">work</mat-icon>
+      <span> Portfolio </span>
+    </div>
   </mat-list-item>
 
   <mat-list-item routerLinkActive="active" routerLink="/blog">
-    <p matLine> Blog </p>
-    <mat-icon matListIcon>folder</mat-icon>
+    <div class="menu-item">
+      <mat-icon fontSet="material-icons-outlined">article</mat-icon>
+      <span> Blog </span>
+    </div>
   </mat-list-item>
 
   <mat-list-item routerLinkActive="active" routerLink="/contact">
-    <p matLine> Contact </p>
-    <mat-icon matListIcon>folder</mat-icon>
+    <div class="menu-item">
+      <mat-icon fontSet="material-icons-outlined">mail</mat-icon>
+      <span> Contact </span>
+    </div>
   </mat-list-item>
 </mat-nav-list>
