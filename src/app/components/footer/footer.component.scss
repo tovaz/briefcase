@@ -20,3 +20,15 @@
     }
   }
 }
+
+@media (max-width: 599px) {
+    .footer-item {
+        width: 100%;
+    }
+
+    .nav-item {
+      a {
+        width: 50%;
+      }
+    }
+}

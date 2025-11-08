@@ -6,7 +6,7 @@ mat-card {
 mat-toolbar {
   flex-wrap: wrap;
   height: 100%;
-  padding: 16px;
+  padding: 0;
 }
 
 .card-img {
@@ -55,13 +55,14 @@ mat-toolbar {
 }
 
 .search {
-  flex: 1;
+  // flex: 1;
   transition: border 1s ease;
   background-color: var(--background);
   border-radius: 8px;
   padding: 0 10px;
   margin: 0 16px;
   border: 2px solid var(--background);
+  min-width: 200px;
 
   &:focus-within {
     transition: border 1s ease;
@@ -76,6 +77,7 @@ mat-toolbar {
     color: var(--foreground);
     font-size: 16px;
     margin: 5px;
+    background: transparent;
 
     &:focus {
       border: none;
@@ -85,6 +87,10 @@ mat-toolbar {
     &.clear{
       width: calc(100% - 80px) !important;
     }
+  }
+
+  .search-button {
+    right: 15px;
   }
 
 

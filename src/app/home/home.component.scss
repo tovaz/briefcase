@@ -22,6 +22,12 @@
             width: 75px;
         }
     }
+
+    .tech-item {
+      width: 75px;
+      height: 75px;
+      img { width: 75px; }
+    }
 }
 
 .portfolio {
@@ -37,6 +43,7 @@
         font-weight: bold;
         text-align: center;
         h3 { margin: 0; }
+        z-index: 99;
     }
 }
 
@@ -74,5 +81,33 @@ mat-card {
 @media screen and (max-width: 599px) {
   .portfolio-card {
     width: 100%;
+  }
+
+  .technology {
+    .fx-grid {
+      grid-template-columns: repeat(4, 50px) !important;
+    }
+    .tech-item {
+      width: 50px !important;
+      height: 50px;
+      img { width: 50px !important; }
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .portfolio-card {
+    width: 100%;
+  }
+
+  .technology {
+    .fx-grid {
+      grid-template-columns: repeat(3, 50px) !important;
+    }
+    .tech-item {
+      width: 50px !important;
+      height: 50px;
+      img { width: 50px !important; }
+    }
   }
 }

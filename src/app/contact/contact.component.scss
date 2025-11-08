@@ -20,3 +20,9 @@
         height: 56px !important;
     }
 }
+
+@media screen and (max-width: 599px) {
+  form {
+    width: 100% !important;
+  }
+}

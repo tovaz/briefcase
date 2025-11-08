@@ -1,0 +1,27 @@
+// Greater Than (gt) classes
+@each $breakpoint, $value in $breakpoints {
+  @if $breakpoint != 'xl' {
+    @media screen and (min-width: $value) {
+      .fx-hide-gt-#{$breakpoint} {
+        display: none !important;
+      }
+      .fx-show-gt-#{$breakpoint} {
+        display: flex !important;
+      }
+    }
+  }
+}
+
+// Less Than (lt) classes
+@each $breakpoint, $value in $breakpoints {
+  @if $breakpoint != 'xs' {
+    @media screen and (max-width: $value - 1) {
+      .fx-hide-lt-#{$breakpoint} {
+        display: none !important;
+      }
+      .fx-show-lt-#{$breakpoint} {
+        display: flex !important;
+      }
+    }
+  }
+}

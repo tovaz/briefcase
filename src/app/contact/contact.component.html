@@ -1,5 +1,5 @@
-<div class="contact hide-on-init fx-flex fx-row fx-column-sm fx-center" style="padding: 2rem; max-width: 1200px; margin: 0 auto;" animateOnScroll animationName="animated fadeIn">
-    <div class="fx-flex-25 fx-center fx-column" style="text-align: center; padding: 2rem;" *ngIf="!sentEmail">
+<div class="contact hide-on-init fx-flex fx-row fx-column-sm fx-column-xs fx-center" style="padding: 2rem; max-width: 1200px; margin: 0 auto;" animateOnScroll animationName="animated fadeIn">
+    <div class="fx-flex-100 fx-center fx-column" style="text-align: center; padding: 2rem;" *ngIf="!sentEmail">
         <h2 class="mb-4">Get in touch with me</h2>
         <img src="assets/images/contact.svg" style="width: 200px; height: auto;" />
     </div>
@@ -9,17 +9,17 @@
         <img src="assets/images/thank-you.svg" style="width: 200px; height: auto;" class="fx-hide-xs"/>
     </div>
 
-    <form [formGroup]="contactForm" class="fx-column fx-gap-32 fx-flex-75 fx-flex-xs-100" style="max-width: 800px;"
+    <form [formGroup]="contactForm" class="fx-column fx-gap-16" style="max-width: 800px;"
           (ngSubmit)="sendMail()" *ngIf="!sentEmail">
         <div class="fx-row fx-column-xs fx-gap-16 fx-fill">
-            <div class="fx-flex-50">
+            <div class="fx-flex-grow">
                 <mat-form-field appearance="fill" style="width: 100%;">
                     <mat-label>Name *</mat-label>
                     <input matInput formControlName="name" style="font-size: 1.1rem;">
                 </mat-form-field>
             </div>
 
-            <div class="fx-flex-50">
+            <div class="fx-flex-grow">
                 <mat-form-field appearance="fill" style="width: 100%;">
                     <mat-label>Phone </mat-label>
                     <input matInput formControlName="phone" style="font-size: 1.1rem;">
