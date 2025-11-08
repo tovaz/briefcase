@@ -1,27 +1,31 @@
-<div class="footer" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign.xs="center" fxLayoutAlign="space-between start" fxLayoutGap="3%">
-    <div fxFlex="30%">
+<div class="footer fx-row fx-wrap fx-column-sm fx-justify-between fx-align-start fx-center  fx-gap-24">
+    <div class="fx-flex-30">
         <h2>Navigation</h2>
-        <a routerLink="/" mat-button>About me</a>
-        <a routerLink="/portfolio" mat-button>Portfolio</a>
-        <p><a routerLink="/blog" mat-button>Blog</a>
-        <a routerLink="/contact" mat-button>Contact</a></p>
+        <div class="fx-column fx-gap-8">
+            <a routerLink="/" mat-button>About me</a>
+            <a routerLink="/portfolio" mat-button>Portfolio</a>
+            <a routerLink="/blog" mat-button>Blog</a>
+            <a routerLink="/contact" mat-button>Contact</a>
+        </div>
     </div>
-    <div fxFlex="30%">
+    <div class="fx-flex-30">
         <!-- <h2>Last posts</h2>
         <mat-chip-list style="text-align: center;">
             <a mat-button mat-chip [selected]="true" *ngFor="let post of lastPosts" (click)="navigate('/blog/post/'+post.id)" >{{ post.title }}</a>
             <a mat-button mat-chip [selected]="true" routerLink="/blog">Mas ...</a>
         </mat-chip-list> -->
     </div>
-    <div fxFlex="30%" fxLayout="column">
+    <div class="fx-flex-30 fx-column fx-center fx-justify-center">
         <h2>Contact me</h2>
-        <p style="margin: 0"><b>Email: </b>info@nuveapps.com</p>
-        <p><b>Telefono: </b>+34 603 34 75 72</p>
-        <!-- <div fxFlex="40px" fxLayout="row wrap" fxLayout.xs="row" fxLayoutAlign="center" fxLayoutGap="10px">
+        <div class="fx-column fx-gap-8">
+            <p style="margin: 0"><b>Email: </b>info@nuveapps.com</p>
+            <!-- <p style="margin: 0"><b>Telefono: </b>+34 603 xx xx xx</p> -->
+        </div>
+        <div class="fx-flex-40 fx-row fx-center fx-gap-8">
             <a href="https://github.com/tovaz" target="_blank"><img class="social-image" src="assets/images/github.svg" /></a>
             <a href="https://www.linkedin.com/in/william-valdez-97a47aa7/" target="_blank"><img class="social-image" src="assets/images/linkedin.svg" /></a>
             <a href="https://www.behance.net/williamvaldez" target="_blank"><img class="social-image" src="assets/images/behance.svg" /></a>
-            <a href="https://www.youtube.com/channel/UCHNW8Dpl--qOnn5SXOH84iA" target="_blank"><img class="social-image" src="assets/images/youtube.svg" /></a>
-        </div> -->
+            <!-- <a href="https://www.youtube.com/channel/UCHNW8Dpl--qOnn5SXOH84iA" target="_blank"><img class="social-image" src="assets/images/youtube.svg" /></a> -->
+        </div>
     </div>
 </div>

@@ -1,0 +1,285 @@
+// Flex Layout System
+// Reemplazo para @angular/flex-layout usando CSS moderno
+
+// Display Flex
+.fx-row { display: flex; flex-direction: row; }
+.fx-row-reverse { display: flex; flex-direction: row-reverse; }
+.fx-column { display: flex; flex-direction: column; }
+.fx-column-reverse { display: flex; flex-direction: column-reverse; }
+
+// Flex Layout
+.fx-layout-row { display: flex; flex-direction: row; }
+.fx-layout-row-reverse { display: flex; flex-direction: row-reverse; }
+.fx-layout-column { display: flex; flex-direction: column; }
+.fx-layout-column-reverse { display: flex; flex-direction: column-reverse; }
+
+// Flex Wrap
+.fx-wrap { flex-wrap: wrap; }
+.fx-nowrap { flex-wrap: nowrap; }
+.fx-wrap-reverse { flex-wrap: wrap-reverse; }
+
+// Flex Flow - Combinación de direction y wrap
+.fx-flow-row-wrap { flex-flow: row wrap; }
+.fx-flow-row-nowrap { flex-flow: row nowrap; }
+.fx-flow-column-wrap { flex-flow: column wrap; }
+.fx-flow-column-nowrap { flex-flow: column nowrap; }
+
+// Justify Content
+.fx-justify-start { justify-content: flex-start; }
+.fx-justify-end { justify-content: flex-end; }
+.fx-justify-center { justify-content: center; }
+.fx-justify-between { justify-content: space-between; }
+.fx-justify-around { justify-content: space-around; }
+.fx-justify-evenly { justify-content: space-evenly; }
+
+// Align Items
+.fx-align-start { align-items: flex-start; }
+.fx-align-end { align-items: flex-end; }
+.fx-align-center { align-items: center; }
+.fx-align-baseline { align-items: baseline; }
+.fx-align-stretch { align-items: stretch; }
+
+// Align Content
+.fx-align-content-start { align-content: flex-start; }
+.fx-align-content-end { align-content: flex-end; }
+.fx-align-content-center { align-content: center; }
+.fx-align-content-between { align-content: space-between; }
+.fx-align-content-around { align-content: space-around; }
+.fx-align-content-stretch { align-content: stretch; }
+
+// Align Self
+.fx-align-self-start { align-self: flex-start; }
+.fx-align-self-end { align-self: flex-end; }
+.fx-align-self-center { align-self: center; }
+.fx-align-self-baseline { align-self: baseline; }
+.fx-align-self-stretch { align-self: stretch; }
+
+// Flex (grow, shrink, basis)
+.fx-flex { flex: 1 1 0%; }
+.fx-flex-initial { flex: 0 1 auto; }
+.fx-flex-auto { flex: 1 1 auto; }
+.fx-flex-none { flex: none; }
+.fx-flex-grow { flex-grow: 1; }
+.fx-flex-shrink { flex-shrink: 1; }
+
+// Flex Basis Percentages
+@for $i from 0 through 100 {
+  @if $i >= 0 {
+    .fx-flex-#{$i} {
+      flex: 1 1 #{$i + '%'};
+      max-width: #{$i + '%'};
+    }
+  }
+}
+
+// Flex Order
+@for $i from -20 through 20 {
+  .fx-order-#{$i} {
+    order: #{$i};
+  }
+}
+
+// Gap (spacing)
+$gap-sizes: (
+  0: 0,
+  4: 4px,
+  8: 8px,
+  12: 12px,
+  16: 16px,
+  20: 20px,
+  24: 24px,
+  32: 32px,
+  40: 40px
+);
+
+@each $key, $value in $gap-sizes {
+  .fx-gap-#{$key} {
+    gap: $value;
+  }
+  .fx-row-gap-#{$key} {
+    row-gap: $value;
+  }
+  .fx-column-gap-#{$key} {
+    column-gap: $value;
+  }
+}
+
+// Responsive Breakpoints
+$breakpoints: (
+  xs: 0,
+  sm: 600px,
+  md: 960px,
+  lg: 1280px,
+  xl: 1920px
+);
+
+// Specific breakpoint mixins
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == xs {
+    @media screen and (max-width: 599px) { @content; }
+  }
+  @if $breakpoint == sm {
+    @media screen and (min-width: 600px) and (max-width: 959px) { @content; }
+  }
+  @if $breakpoint == md {
+    @media screen and (min-width: 960px) and (max-width: 1279px) { @content; }
+  }
+  @if $breakpoint == lg {
+    @media screen and (min-width: 1280px) and (max-width: 1919px) { @content; }
+  }
+  @if $breakpoint == xl {
+    @media screen and (min-width: 1920px) { @content; }
+  }
+}
+
+// Responsive classes for xs
+@include respond-to(xs) {
+  .fx-column-xs {
+    flex-direction: column !important;
+  }
+  .fx-row-xs {
+    flex-direction: row !important;
+  }
+}
+
+// Responsive classes for sm
+@include respond-to(sm) {
+  .fx-column-sm {
+    flex-direction: column !important;
+  }
+  .fx-row-sm {
+    flex-direction: row !important;
+  }
+}
+
+// Responsive classes for md
+@include respond-to(md) {
+  .fx-column-md {
+    flex-direction: column !important;
+  }
+  .fx-row-md {
+    flex-direction: row !important;
+  }
+}
+
+// Responsive classes for lg
+@include respond-to(lg) {
+  .fx-column-lg {
+    flex-direction: column !important;
+  }
+  .fx-row-lg {
+    flex-direction: row !important;
+  }
+}
+
+// Generic responsive classes
+@each $breakpoint, $value in $breakpoints {
+  @media screen and (min-width: $value) {
+    // Display
+    .fx-#{$breakpoint}-row { display: flex; flex-direction: row !important; }
+    .fx-#{$breakpoint}-column { display: flex; flex-direction: column !important; }
+
+    // Justify Content
+    .fx-#{$breakpoint}-justify-start { justify-content: flex-start !important; }
+    .fx-#{$breakpoint}-justify-end { justify-content: flex-end !important; }
+    .fx-#{$breakpoint}-justify-center { justify-content: center !important; }
+    .fx-#{$breakpoint}-justify-between { justify-content: space-between !important; }
+    .fx-#{$breakpoint}-justify-around { justify-content: space-around !important; }
+
+    // Align Items
+    .fx-#{$breakpoint}-align-start { align-items: flex-start !important; }
+    .fx-#{$breakpoint}-align-end { align-items: flex-end !important; }
+    .fx-#{$breakpoint}-align-center { align-items: center !important; }
+    .fx-#{$breakpoint}-align-stretch { align-items: stretch !important; }
+
+    // Flex Basis
+    @for $i from 0 through 100 {
+      @if $i % 5 == 0 {
+        .fx-#{$breakpoint}-#{$i} {
+          flex: 1 1 #{$i + '%'};
+          max-width: #{$i + '%'};
+        }
+      }
+    }
+  }
+}
+
+// Hide/Show helpers
+@each $breakpoint, $value in $breakpoints {
+  @media screen and (min-width: $value) {
+    .fx-show-#{$breakpoint} {
+      display: flex !important;
+    }
+    .fx-hide-#{$breakpoint} {
+      display: none !important;
+    }
+  }
+}
+
+// Common Layout Patterns
+.fx-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fx-center-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.fx-space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fx-fill {
+  width: 100%;
+  height: 100%;
+}
+
+// Grid System
+.fx-grid {
+  display: grid;
+  width: 100%;
+}
+
+.fx-grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+// Responsive grid columns
+@media screen and (max-width: 599px) {
+  .fx-grid-cols-4 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 959px) {
+  .fx-grid-cols-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+  .fx-grid-cols-4 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.fx-gap-16 {
+  gap: 16px;
+}
+
+@each $breakpoint, $value in $breakpoints {
+  @media screen and (min-width: $value) {
+    @for $i from 1 through 12 {
+      .fx-#{$breakpoint}-grid-cols-#{$i} {
+        grid-template-columns: repeat(#{$i}, 1fr);
+      }
+    }
+  }
+}

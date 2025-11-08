@@ -1,5 +1,5 @@
-<mat-toolbar color="dark">
-  <div fxShow="true" fxHide.gt-sm="true">
+<mat-toolbar color="dark" class="fx-row fx-align-center fx-justify-between">
+  <div class="fx-show fx-hide-gt-sm">
     <button mat-icon-button class="example-icon" (click)="sidebar.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
@@ -7,10 +7,10 @@
 
   <span class="space"></span>
 
-  <div fxShow="true" fxHide.lt-md="true" class="menu-buttons">
+  <div class="fx-show fx-hide-lt-md menu-buttons fx-row fx-align-center fx-gap-16">
     <a mat-button routerLinkActive="active" routerLink="" [routerLinkActiveOptions]="{ exact: true }">About</a>
     <a mat-button routerLinkActive="active" routerLink="portfolio">Portfolio</a>
-    <!-- <a mat-button routerLinkActive="active" routerLink="blog">Blog</a> -->
+    <a mat-button routerLinkActive="active" routerLink="blog">Blog</a>
     <a mat-button routerLinkActive="active" routerLink="contact">Contact</a>
   </div>
   <button mat-button (click)="changeTheme()" style="min-width: 50px;">

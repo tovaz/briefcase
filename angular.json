@@ -31,6 +31,8 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/swiper/swiper-bundle.css",
+              "src/styles.scss",
               "src/assets/themes/styles.scss"
             ],
             "scripts": []

@@ -11,3 +11,12 @@
     }
 }
 
+
+::ng-deep {
+  a {
+    color: #efefef !important;
+    span {
+      color: #efefef !important;
+    }
+  }
+}

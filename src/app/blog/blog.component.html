@@ -35,21 +35,22 @@
 <div style="padding: 20px; min-height: 100vh;" class="hide-on-init" animateOnScroll animationName="animated fadeIn">
 
 
-  <div fxLayout="column" fxLayoutAlign="center center">
-    <div fxFlex="100" style="text-align: center;">
+  <div class="fx-column fx-center">
+    <div class="fx-flex-100" style="text-align: center;">
       <h2>Posts</h2>
-      <div *ngIf="posts?.length == 0">
+      <div *ngIf="posts?.length == 0" class="fx-column fx-center fx-gap-16">
         <svg-icon src="assets/images/not-found.svg" [svgStyle]="{ 'width.px':50, 'fill':'var(--primary)', 'height.px':50 }"></svg-icon>
         <p>No hay posts que coincidan con los filtros o termino de busqueda</p>
       </div>
     </div>
   </div>
 
-  <div class="portfolio" fxLayout="row wrap" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center center">
-    <div class="posts" fxLayout="row wrap" fxLayout.xs="column" fxFlex="100"  fxLayoutAlign="center" style="width: 100%;" fxLayoutWrap >
+  <div class="portfolio ">
+    <div class="posts fx-grid fx-grid-cols-4 fx-justify-left fx-gap-8" style="width: 100%;">
       <mat-card *ngFor="let post of posts"
-        matRipple fxFlex="25" fxFlex.xs="100" style="margin: 10px; "
-        class="mat-elevation-z5 hide-on-init" [routerLink]="['/blog/post/'+post.id]"
+        matRipple class="article mat-elevation-z5 hide-on-init"
+        style="margin: 10px;"
+        [routerLink]="['/blog/post/'+post.id]"
         animateOnScroll animationName="animated zoomIn"
         >
         <div>

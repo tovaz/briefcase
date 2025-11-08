@@ -1,46 +1,46 @@
-<div class="contact hide-on-init" fxLayout="row"  fxLayoutAlign="center center" fxLayout.xs="column" animateOnScroll animationName="animated fadeIn">
-    <div fxFlex="25" style="text-align: center;" *ngIf="!sentEmail">
-        <h2 >Get in touch with me</h2>
-        <img src="assets/images/contact.svg" style="height: 100px; " />
+<div class="contact hide-on-init fx-flex fx-row fx-column-sm fx-center" style="padding: 2rem; max-width: 1200px; margin: 0 auto;" animateOnScroll animationName="animated fadeIn">
+    <div class="fx-flex-25 fx-center fx-column" style="text-align: center; padding: 2rem;" *ngIf="!sentEmail">
+        <h2 class="mb-4">Get in touch with me</h2>
+        <img src="assets/images/contact.svg" style="width: 200px; height: auto;" />
     </div>
 
-    <div fxFlex="100" *ngIf="sentEmail" style="text-align: center;">
+    <div class="fx-flex-100 fx-center fx-column" *ngIf="sentEmail" style="text-align: center;">
         <h2>Thank you for contact me, I will answer you asap ...</h2>
-        <img src="assets/images/thank-you.svg" style="height: 100px; " fxHide.xs/>
+        <img src="assets/images/thank-you.svg" style="width: 200px; height: auto;" class="fx-hide-xs"/>
     </div>
 
-    <form [formGroup]="contactForm"  fxLayout="column" fxLayoutAlign="space-between center"  fxLayoutGap="10px" fxFlex="50"
-          fxFlex.xs="100" fxFill (ngSubmit)="sendMail()" *ngIf="!sentEmail">
-        <div fxFlex="50" fxLayout="row" fxLayout.xs="column"  fxLayoutGap="10px"  fxLayoutAlign="start" fxFill fxFlex.xs="100">
-            <div fxFlex="50">
-                <mat-form-field appearance="fill"   >
+    <form [formGroup]="contactForm" class="fx-column fx-gap-32 fx-flex-75 fx-flex-xs-100" style="max-width: 800px;"
+          (ngSubmit)="sendMail()" *ngIf="!sentEmail">
+        <div class="fx-row fx-column-xs fx-gap-16 fx-fill">
+            <div class="fx-flex-50">
+                <mat-form-field appearance="fill" style="width: 100%;">
                     <mat-label>Name *</mat-label>
-                    <input matInput formControlName="name">
+                    <input matInput formControlName="name" style="font-size: 1.1rem;">
                 </mat-form-field>
             </div>
 
-            <div fxFlex="50">
-                <mat-form-field appearance="fill"  >
+            <div class="fx-flex-50">
+                <mat-form-field appearance="fill" style="width: 100%;">
                     <mat-label>Phone </mat-label>
-                    <input matInput formControlName="phone" >
+                    <input matInput formControlName="phone" style="font-size: 1.1rem;">
                 </mat-form-field>
             </div>
         </div>
 
-        <div fxFlex="50" fxLayout="column" fxLayoutGap="10px"  fxFill fxFlex.xs="100">
-            <mat-form-field appearance="fill"  fxFlex="50" >
+        <div class="fx-column fx-gap-16 fx-fill">
+            <mat-form-field appearance="fill" style="width: 100%;">
                 <mat-label>Email *</mat-label>
-                <input matInput formControlName="email" type="email">
+                <input matInput formControlName="email" type="email" style="font-size: 1.1rem;">
             </mat-form-field>
         </div>
 
-        <div fxFlex="50" fxLayout="column" fxLayoutGap="10px"  fxFill fxFlex.xs="100">
-            <mat-form-field appearance="fill"  fxFlex="50" >
+        <div class="fx-column fx-gap-16 fx-fill">
+            <mat-form-field appearance="fill" style="width: 100%;">
                 <mat-label>Message *</mat-label>
-                <textarea matInput formControlName="message"></textarea>
+                <textarea matInput formControlName="message" rows="6" style="font-size: 1.1rem;"></textarea>
             </mat-form-field>
 
-            <div fxFlex="100">
+            <div class="fx-flex-100">
                 <ng-container *ngFor="let item of validationMessages">
                     <ng-container *ngFor="let validation of item.validations">
                         <p [class.invalid]="!contactForm.get(item.name).valid && contactForm.get(item.name).touched">{{ validation.message }}</p>
@@ -48,10 +48,10 @@
                 </ng-container>
             </div>
 
-            <button mat-raised-button color="primary" type="submit"  [disabled]="sending" >
-                <mat-spinner *ngIf="sending" [diameter]="30" style="margin:0 auto;"></mat-spinner> <span [hidden]="sending">Send</span>
+            <button mat-raised-button color="primary" type="submit" [disabled]="sending" style="width: 200px; height: 48px; font-size: 1.1rem;">
+                <mat-spinner *ngIf="sending" [diameter]="30" style="margin:0 auto;"></mat-spinner>
+                <span [hidden]="sending">Send</span>
             </button>
         </div>
-
     </form>
 </div>

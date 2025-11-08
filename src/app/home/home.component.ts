@@ -4,6 +4,7 @@ import { environment as ENV } from 'src/environments/environment';
 import { BriefcasesService } from '../services/briefcases.service';
 import { FormBuilder } from '@angular/forms';
 import { createContactForm } from '../contact/contact.form';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -15,7 +16,9 @@ export class HomeComponent implements OnInit {
   briefs = null;
   url = ENV.uploadUrl;
 
-  constructor(private techService: TechnologiesService, private briefsService: BriefcasesService ) { }
+  constructor(private techService: TechnologiesService, private briefsService: BriefcasesService,
+    private route: Router
+   ) { }
 
   ngOnInit() {
 
@@ -36,5 +39,13 @@ export class HomeComponent implements OnInit {
 
   clickBrief(item:any){
     console.log('CLICKED CAROUSEL', item)
+  }
+
+  getImageUrls(images: any[]): string[] {
+    return images.map(img => this.url + '/' + img.url);
+  }
+
+  openItem(item:any){
+    this.route.navigate(['portfolio/'+item.id]);
   }
 }

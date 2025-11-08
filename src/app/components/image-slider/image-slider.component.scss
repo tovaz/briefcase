@@ -1,0 +1,50 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.image-slider {
+  width: 100%;
+  height: 100%;
+}
+
+swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+::part(button-prev),
+::part(button-next) {
+  color: var(--foreground);
+  background: var(--background);
+  padding: 20px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+::part(bullet) {
+  background: var(--foreground);
+  border: 1px solid var(--primary);
+  opacity: 0.4;
+
+  box-shadow: 0 2px 4px rgba(var(--foreground-rgb), 0.3);
+}
+
+::part(bullet-active) {
+  opacity: 1;
+}

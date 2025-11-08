@@ -1,11 +1,11 @@
-<mat-sidenav-container class="container"  fxFlexFill id='appComponent'>
-  <mat-sidenav #sidenav fxLayout="column" mode="side" opened="false" fxHide.gt-sm="true">
+<mat-sidenav-container class="container fx-fill" id='appComponent'>
+  <mat-sidenav #sidenav class="fx-column fx-hide-gt-sm" mode="side" opened="false">
     <app-sidebar [sideNav]="sidenav"></app-sidebar>
   </mat-sidenav>
 
-  <mat-sidenav-content fxFlexFill>
+  <mat-sidenav-content class="fx-fill">
     <app-toolbar [sidebar]="sidenav"></app-toolbar>
-    <main>
+    <main class="fx-column fx-fill">
       <router-outlet (activate)="onActivate($event, outlet)" #outlet></router-outlet>
       <app-footer></app-footer>
     </main>
