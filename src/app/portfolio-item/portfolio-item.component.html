@@ -1,27 +1,30 @@
 <div class="hide-on-init" animateOnScroll animationName="animated fadeIn">
-  <div style="padding: 25px; display: flex; justify-content: center;" *ngIf="!portfolio">
-    <mat-spinner color="primary" style="transform: scale(0.5);"></mat-spinner>
-  </div>
-
-
-  <div class="fx-column fx-align-center" style="margin-top: 20px; padding: 20px">
-    <div style="text-align: center;">
-      <h1>{{portfolio?.name}}</h1>
-      <h4>{{portfolio?.description}}</h4>
+  <div class="content">
+    <div style="padding: 25px; display: flex; justify-content: center;" *ngIf="!portfolio">
+      <mat-spinner color="primary" style="transform: scale(0.5);"></mat-spinner>
     </div>
-  </div>
 
-  <mat-card *ngIf="pdfs.length > 0" style="padding: 20px" color="accent">
-    <mat-card-title style="font-size: 20px;">Case study of the app</mat-card-title>
-    <p>As part of Google Certification Program, I completed this design with all cycles of the design process. <br/>
-      <b>Empathize, Define, Ideate, Prototype and Test</b></p>
-    <div class="fx-row fx-gap-16">
-      <a *ngFor="let item of pdfs" href="{{url}}/{{ item.url }}" mat-raised-button color="primary">
-        <span class="material-icons">picture_as_pdf</span>
-        Download case study
-      </a>
+
+    <div class="fx-column fx-align-center" style="margin-top: 20px; padding: 20px">
+      <div style="text-align: center;">
+        <h1>{{portfolio?.name}}</h1>
+        <h4>{{portfolio?.description}}</h4>
+      </div>
     </div>
-  </mat-card>
+
+    <mat-card *ngIf="pdfs.length > 0" style="padding: 20px" color="accent">
+      <mat-card-title style="font-size: 20px;">Case study of the app</mat-card-title>
+      <p>As part of Google Certification Program, I completed this design with all cycles of the design process. <br/>
+        <b>Empathize, Define, Ideate, Prototype and Test</b></p>
+      <div class="fx-row fx-gap-16">
+        <a *ngFor="let item of pdfs" href="{{url}}/{{ item.url }}" mat-raised-button color="primary">
+          <span class="material-icons">picture_as_pdf</span>
+          Download case study
+        </a>
+      </div>
+    </mat-card>
+    <br>
+  </div>
 
   <div class="technologies">
     <h3>Technologies</h3>

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { BlogsService } from '../services/blogs.service';
 import { TechnologiesService } from '../services/technologies.service';
 import { environment as ENV } from 'src/environments/environment';
+import { Router } from '@angular/router';
+import { createSlug } from '../utils/slug.utils';
 
 @Component({
   selector: 'app-blog',
@@ -18,7 +20,9 @@ export class BlogComponent implements OnInit {
   posts:any = null;
   url = ENV.uploadUrl;
 
-  constructor(private blogsService: BlogsService, private techsService: TechnologiesService) { }
+  constructor(private blogsService: BlogsService, private techsService: TechnologiesService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.categories[0] = this.selectedCat;
@@ -49,6 +53,11 @@ export class BlogComponent implements OnInit {
 
     this.selectedCat = cat ? cat : this.selectedCat;
     this.selectedTech = tech ? tech : this.selectedTech;
+  }
+
+  openPost(post:any){
+    const slug = createSlug(post.title, post.id);
+    this.router.navigate(['/blog/post', slug]);
   }
 
 }

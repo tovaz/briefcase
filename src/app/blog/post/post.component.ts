@@ -5,6 +5,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { BlogsService } from 'src/app/services/blogs.service';
 import { environment as ENV } from 'src/environments/environment';
 import { default as hljs } from 'highlight.js';
+import { extractIdFromSlug } from 'src/app/utils/slug.utils';
 
 @Component({
   selector: 'app-post',
@@ -26,7 +27,8 @@ export class PostComponent implements OnInit {
 
   ngOnInit(): void {
     this.activeRoute.paramMap.subscribe((params: ParamMap) => {
-      const id = params.get('id');
+      const slug = params.get('id');
+      const id = extractIdFromSlug(slug!);
       this.loadPost(id);
       //this.toTop();
     });

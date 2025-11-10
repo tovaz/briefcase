@@ -3,12 +3,16 @@ import { CommonModule } from '@angular/common';
 import { HighlightCodeDirective } from './highlight.directive';
 import { AnimateOnScrollDirective } from './animate-on-scroll.directive';
 import { FlexLayoutDirective } from './flex-layout.directive';
+import { ResponsiveClassDirective } from './responsive-class.directive';
+import { ResponsiveStyleDirective } from './responsive-style.directive';
 
 @NgModule({
   declarations: [
     HighlightCodeDirective,
     AnimateOnScrollDirective,
-    FlexLayoutDirective
+    FlexLayoutDirective,
+    ResponsiveClassDirective,
+    ResponsiveStyleDirective
   ],
   imports: [
     CommonModule
@@ -16,7 +20,9 @@ import { FlexLayoutDirective } from './flex-layout.directive';
   exports: [
     HighlightCodeDirective,
     AnimateOnScrollDirective,
-    FlexLayoutDirective
+    FlexLayoutDirective,
+    ResponsiveClassDirective,
+    ResponsiveStyleDirective
   ]
 })
 export class DirectivesModule { }

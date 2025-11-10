@@ -50,7 +50,7 @@
       <mat-card *ngFor="let post of posts"
         matRipple class="article mat-elevation-z5 hide-on-init"
         style="margin: 10px;"
-        [routerLink]="['/blog/post/'+post.id]"
+        (click)="openPost(post)"
         animateOnScroll animationName="animated zoomIn"
         >
         <div>

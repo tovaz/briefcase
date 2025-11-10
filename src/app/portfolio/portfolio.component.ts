@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { environment as ENV } from 'src/environments/environment';
 import { BriefcasesService } from '../services/briefcases.service';
 import { Router } from '@angular/router';
+import { createSlug } from '../utils/slug.utils';
 
 @Component({
   selector: 'app-portfolio',
@@ -24,7 +25,8 @@ export class PortfolioComponent implements OnInit {
   }
 
   openItem(item:any){
-    this.route.navigate(['portfolio/'+item.id]);
+    const slug = createSlug(item.name, item.id);
+    this.route.navigate(['portfolio/' + slug]);
   }
 
   getImageUrls(images: any[]): string[] {

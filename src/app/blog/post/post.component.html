@@ -1,7 +1,7 @@
 
 <div style="padding: 20px; min-height: 100vh;" class="hide-on-init" #container animateOnScroll animationName="animated fadeIn">
-  <div fxFlex="100" fxLayout.md="row" fxLayout.xs="column">
-    <mat-card *ngIf="post" fxFlex.md="78" fxFlex.lg="78" fxFlex.xs="100" class="post-card">
+  <div class="fx-flex fx-layout-row fx-flex-100 fx-md-row fx-xs-column fx-sm-column" >
+    <mat-card class="fx-lg-78 fx-md-75 fx-xs-100 fx-sm-100 post-card" *ngIf="post">
 
       <mat-card-header
         [ngStyle]="{'background': 'linear-gradient(rgba(0,0,'+color1+',0.7),rgba(0,'+color1+','+color2+',0.7)), url('+url + post.imageCover.url +') '}"
@@ -9,7 +9,7 @@
         >
         <h1 style="text-align: center;">{{ post.title }}</h1>
         <div class="header-details hide-on-init"
-          ngStyle.lg="'width': '30%'" ngStyle.md="'width': '30%'" ngStyle.xs="'border-radius': '0'; 'bottom':'0'"
+          [ngStyle.lg]="{'width': '30%'}" [ngStyle.md]="{'width': '30%'}" [ngStyle.xs]="{'border-radius': '0', 'bottom':'0'}"
           animateOnScroll animationName="animated animated-d-05 slideInLeft"
         >
           <p style="margin: 0">Categoria: {{ post.category.name }}</p>
@@ -26,8 +26,8 @@
 
     </mat-card>
 
-    <mat-card *ngIf="post" ngClass.lg="right-bar" ngClass.md="right-bar" fxFlex.xs="100"
-      class="profile-card hide-on-init" style="text-align: center;"
+    <mat-card  *ngIf="post" [ngClass.lg]="'right-bar'" [ngClass.md]="'right-bar'"
+      class="profile-card hide-on-init fx-flex fx-flex-100" style="text-align: center;"
       animateOnScroll animationName="animated animated-d-05 slideInRight"
     >
       <mat-card-content >
@@ -51,4 +51,4 @@
 </div>
 
 </div>
-<button mat-raised-button color="primary" (click)="toTop()">SUBIR</button>
+<button mat-raised-button color="primary" (click)="toTop()" style="margin-bottom: 16px; margin-left: 16px;">⬆️ Go Up</button>

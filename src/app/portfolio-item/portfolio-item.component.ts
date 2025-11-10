@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { BriefcasesService } from '../services/briefcases.service';
 import { GalleryItem, ImageItem } from 'ng-gallery';
 import { environment } from 'src/environments/environment';
+import { extractIdFromSlug } from '../utils/slug.utils';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./portfolio-item.component.scss']
 })
 export class PortfolioItemComponent implements OnInit, AfterViewInit {
-  portfolioId = null;
+  portfolioId: number | null = null;
   portfolio:any;
   screen = { width: 765, height: 1000};
   images: GalleryItem[] = [];
@@ -20,7 +21,8 @@ export class PortfolioItemComponent implements OnInit, AfterViewInit {
   pdfs:any = [];
 
   constructor(private actRoute: ActivatedRoute, private briefService: BriefcasesService) {
-    this.portfolioId = this.actRoute.snapshot.params.id;
+    const slug = this.actRoute.snapshot.params.id;
+    this.portfolioId = extractIdFromSlug(slug);
   }
 
   async ngOnInit() {
