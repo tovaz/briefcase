@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
 import { CommonModule } from "@angular/common";
-import { HttpClient, provideHttpClient } from '@angular/common/http';
+import { HttpClient, provideHttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
 
 import { AuthInterceptor } from './services/auth.interceptor';
@@ -35,59 +35,50 @@ import { ImageSliderModule } from './components/image-slider/image-slider.module
 import { MatIconRegistry } from '@angular/material/icon';
 
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    ToolbarComponent,
-    SidebarComponent,
-    PortfolioComponent,
-    PortfolioItemComponent,
-    ContactComponent,
-    FooterComponent,
-    BlogComponent,
-    PostComponent,
-  ],
-  imports: [
-    CommonModule,
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MaterialModule,
-    // FlexLayoutModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    DirectivesModule,
-    ImageSliderModule,
-    AngularSvgIconModule.forRoot(),
-    GalleryModule.withConfig({
-      dots: true, imageSize: 'contain', autoPlay: true, gestures: true,
-    }),
-    // MatCarouselModule.forRoot(),
-    // AnimateOnScrollModule.forRoot()
-  ],
-  providers: [
-    ThemeService,
-    StyleManager,
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-    {
-      provide: GALLERY_CONFIG,
-      useValue: {
-        dots: true,
-        imageSize: 'cover'
-      }
-    },
-    {
-      provide: MatIconRegistry,
-      // useFactory: (sanitizer: DomSanitizer) => {
-      //   const registry = new MatIconRegistry(document.injector.get(HttpClient), sanitizer, document);
-      //   registry.setDefaultFontSetClass('material-icons');
-      //   return registry;
-      // },
-      deps: [DomSanitizer]
-    }
-  ],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        HomeComponent,
+        ToolbarComponent,
+        SidebarComponent,
+        PortfolioComponent,
+        PortfolioItemComponent,
+        ContactComponent,
+        FooterComponent,
+        BlogComponent,
+        PostComponent,
+    ],
+    bootstrap: [AppComponent], imports: [CommonModule,
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MaterialModule,
+        FormsModule,
+        ReactiveFormsModule,
+        DirectivesModule,
+        ImageSliderModule,
+        AngularSvgIconModule.forRoot(),
+        GalleryModule.withConfig({
+            dots: true, imageSize: 'contain', autoPlay: true, gestures: true,
+        })], providers: [
+        ThemeService,
+        StyleManager,
+        { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+        {
+            provide: GALLERY_CONFIG,
+            useValue: {
+                dots: true,
+                imageSize: 'cover'
+            }
+        },
+        {
+            provide: MatIconRegistry,
+            // useFactory: (sanitizer: DomSanitizer) => {
+            //   const registry = new MatIconRegistry(document.injector.get(HttpClient), sanitizer, document);
+            //   registry.setDefaultFontSetClass('material-icons');
+            //   return registry;
+            // },
+            deps: [DomSanitizer]
+        },
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AppModule { }
