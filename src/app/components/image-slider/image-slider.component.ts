@@ -13,13 +13,12 @@ export interface ImageSliderConfig {
 }
 
 @Component({
-  selector: 'app-image-slider',
-  standalone: true,
-  imports: [CommonModule],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  templateUrl: './image-slider.component.html',
-  styleUrls: ['./image-slider.component.scss'],
-  encapsulation: ViewEncapsulation.None
+    selector: 'app-image-slider',
+    imports: [CommonModule],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    templateUrl: './image-slider.component.html',
+    styleUrls: ['./image-slider.component.scss'],
+    encapsulation: ViewEncapsulation.None
 })
 export class ImageSliderComponent implements OnInit {
   @Input() images: string[] = [];

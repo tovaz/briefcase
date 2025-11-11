@@ -8,9 +8,10 @@ import { default as hljs } from 'highlight.js';
 import { extractIdFromSlug } from 'src/app/utils/slug.utils';
 
 @Component({
-  selector: 'app-post',
-  templateUrl: './post.component.html',
-  styleUrls: ['./post.component.scss']
+    selector: 'app-post',
+    templateUrl: './post.component.html',
+    styleUrls: ['./post.component.scss'],
+    standalone: false
 })
 export class PostComponent implements OnInit {
   url = ENV.uploadUrl;

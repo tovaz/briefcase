@@ -7,9 +7,10 @@ import { extractIdFromSlug } from '../utils/slug.utils';
 
 
 @Component({
-  selector: 'app-portfolio-item',
-  templateUrl: './portfolio-item.component.html',
-  styleUrls: ['./portfolio-item.component.scss']
+    selector: 'app-portfolio-item',
+    templateUrl: './portfolio-item.component.html',
+    styleUrls: ['./portfolio-item.component.scss'],
+    standalone: false
 })
 export class PortfolioItemComponent implements OnInit, AfterViewInit {
   portfolioId: number | null = null;

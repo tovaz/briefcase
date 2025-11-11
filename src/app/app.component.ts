@@ -6,9 +6,10 @@ import { ActivatedRoute, NavigationEnd, ParamMap, Router } from '@angular/router
 
 declare let gtag: Function;
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    standalone: false
 })
 export class AppComponent implements OnInit, AfterViewInit{
   @HostBinding('class') componentClass: any;
