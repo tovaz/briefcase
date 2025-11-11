@@ -6,20 +6,20 @@
 // Plus imports for other components in your app.
 
 // Typography configuration
-$typography-config: mat.define-typography-config(
+$typography-config: mat.m2-define-typography-config(
   $font-family: 'Manrope',
-  $headline-1: mat.define-typography-level(4rem, 1.2, 700),     // 64px
-  $headline-2: mat.define-typography-level(3.5rem, 1.2, 600),   // 56px
-  $headline-3: mat.define-typography-level(3rem, 1.2, 600),     // 48px
-  $headline-4: mat.define-typography-level(2.5rem, 1.2, 500),   // 40px
-  $headline-5: mat.define-typography-level(2rem, 1.2, 500),     // 32px
-  $headline-6: mat.define-typography-level(1.75rem, 1.2, 500),  // 28px
-  $body-1: mat.define-typography-level(1.25rem, 1.6, 400),      // 20px
-  $body-2: mat.define-typography-level(1.125rem, 1.6, 400),     // 18px
-  $subtitle-1: mat.define-typography-level(1.375rem, 1.5, 500), // 22px
-  $subtitle-2: mat.define-typography-level(1.25rem, 1.5, 500),  // 20px
-  $caption: mat.define-typography-level(1rem, 1.4, 400),        // 16px
-  $button: mat.define-typography-level(1.125rem, 1.2, 500)      // 18px
+  $headline-1: mat.m2-define-typography-level(4rem, 1.2, 700),     // 64px
+  $headline-2: mat.m2-define-typography-level(3.5rem, 1.2, 600),   // 56px
+  $headline-3: mat.m2-define-typography-level(3rem, 1.2, 600),     // 48px
+  $headline-4: mat.m2-define-typography-level(2.5rem, 1.2, 500),   // 40px
+  $headline-5: mat.m2-define-typography-level(2rem, 1.2, 500),     // 32px
+  $headline-6: mat.m2-define-typography-level(1.75rem, 1.2, 500),  // 28px
+  $body-1: mat.m2-define-typography-level(1.25rem, 1.6, 400),      // 20px
+  $body-2: mat.m2-define-typography-level(1.125rem, 1.6, 400),     // 18px
+  $subtitle-1: mat.m2-define-typography-level(1.375rem, 1.5, 500), // 22px
+  $subtitle-2: mat.m2-define-typography-level(1.25rem, 1.5, 500),  // 20px
+  $caption: mat.m2-define-typography-level(1rem, 1.4, 400),        // 16px
+  $button: mat.m2-define-typography-level(1.125rem, 1.2, 500)      // 18px
 );
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -31,15 +31,15 @@ $typography-config: mat.define-typography-config(
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$briefcase-primary: mat.define-palette(mat.$indigo-palette);
-$briefcase-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$briefcase-primary: mat.m2-define-palette(mat.$m2-indigo-palette);
+$briefcase-accent: mat.m2-define-palette(mat.$m2-pink-palette, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
-$briefcase-warn: mat.define-palette(mat.$red-palette);
+$briefcase-warn: mat.m2-define-palette(mat.$m2-red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$briefcase-theme: mat.define-light-theme((
+$briefcase-theme: mat.m2-define-light-theme((
   color: (
     primary: $briefcase-primary,
     accent: $briefcase-accent,
