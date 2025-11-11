@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, HostBinding, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, HostBinding, OnInit } from '@angular/core';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { ThemeService } from './services/theme.service';
 import { environment as ENV } from 'src/environments/environment';
@@ -11,17 +11,21 @@ declare let gtag: Function;
     styleUrls: ['./app.component.scss'],
     standalone: false
 })
-export class AppComponent implements OnInit, AfterViewInit{
+export class AppComponent implements OnInit, AfterViewInit {
   @HostBinding('class') componentClass: any;
   title = 'briefcase';
 
   constructor(private themeService: ThemeService, private overContainer: OverlayContainer,
-              private activeRoute: ActivatedRoute, private router:Router){
+              private activeRoute: ActivatedRoute, private router:Router, private cdr: ChangeDetectorRef) {
 
   }
 
   ngOnInit(){
     this.isDebug();
+
+  }
+
+  ngAfterViewInit(){
     this.themeService.themeChanged.subscribe( t => {
       this.changeTheme(t);
     });
@@ -40,15 +44,15 @@ export class AppComponent implements OnInit, AfterViewInit{
         'page_path': evt.urlAfterRedirects
       } );
       this.toTop();
-  });
-  }
+    });
 
-  ngAfterViewInit(){
-    const currentTheme = this.themeService.currentTheme;
-    if (currentTheme)
-      this.changeTheme(currentTheme);
-    else
-      this.themeService.setTheme('light');
+    setTimeout(() => {
+      const currentTheme = this.themeService.currentTheme;
+      if (currentTheme)
+        this.changeTheme(currentTheme);
+      else
+        this.themeService.setTheme('light');
+    }, 50);
   }
 
   changeTheme(theme:any){

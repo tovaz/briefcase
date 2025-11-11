@@ -1,5 +1,5 @@
 import { OverlayContainer } from '@angular/cdk/overlay';
-import { Component, HostBinding, Input, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, HostBinding, Input, OnInit } from '@angular/core';
 import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({
@@ -8,13 +8,16 @@ import { ThemeService } from 'src/app/services/theme.service';
     styleUrls: ['./toolbar.component.scss'],
     standalone: false
 })
-export class ToolbarComponent implements OnInit {
+export class ToolbarComponent implements OnInit, AfterViewInit {
   @Input() sidebar:any;
   @HostBinding('class') componentClass: any;
 
-  constructor(private themeService: ThemeService, private overContainer: OverlayContainer) { }
+  constructor(private themeService: ThemeService, private overContainer: OverlayContainer, private cdr: ChangeDetectorRef) { }
   currentTheme:any = null;
-  ngOnInit(): void {
+
+  ngOnInit(): void { }
+
+  ngAfterViewInit(): void {
     this.currentTheme = this.themeService.currentTheme;
   }
 
@@ -24,8 +27,9 @@ export class ToolbarComponent implements OnInit {
     else
       this.themeService.setTheme('dark');
     this.currentTheme = this.themeService.currentTheme;
+    this.cdr.detectChanges();
   }
 
-  
+
 
 }

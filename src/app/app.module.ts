@@ -33,7 +33,10 @@ import { PostComponent } from './blog/post/post.component';
 import { DirectivesModule } from './directives/directives.module';
 import { ImageSliderModule } from './components/image-slider/image-slider.module';
 import { MatIconRegistry } from '@angular/material/icon';
+import { register } from 'swiper/element/bundle';
 
+//_ Register swiper custom elements
+register();
 
 @NgModule({ declarations: [
         AppComponent,

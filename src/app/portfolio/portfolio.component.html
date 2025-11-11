@@ -10,10 +10,9 @@
     </div>
   </div>
 
-  <div class="portfolio fx-row fx-wrap fx-column-xs fx-center fx-gap-8">
-    <div class="portfolios fx-row fx-wrap fx-column-xs fx-flex-100 fx-center" style="width: 100%;">
+  <div class="portfolio fx-row  fx-center flex-justify-center flex-align-center fx-column-sm fx-column-xs" style="padding: 2rem;" animationName="animated bounceInUp">
+    <div class="portfolio fx-grid fx-grid-cols-4 fx-gap-8" >
       <mat-card *ngFor="let brief of briefs"
-      class="fx-flex-30 fx-grid fx-grid-cols-4 mat-elevation-z5 pointer hide-on-init"
       style="margin: 10px; padding: 0;" matRipple
       animateOnScroll animationName="animated-d-05 animated zoomIn"
       (click)="openItem(brief)">

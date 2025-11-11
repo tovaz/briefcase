@@ -21,3 +21,10 @@ mat-toolbar{
     position: absolute;
   }
 }
+
+.floating-toolbar {
+  padding-top: 16px;
+  width: calc(100% - 32px);
+  margin: 0 auto;
+  border-radius: 48px;
+}

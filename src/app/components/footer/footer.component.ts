@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BlogsService } from 'src/app/services/blogs.service';
 
@@ -8,13 +8,17 @@ import { BlogsService } from 'src/app/services/blogs.service';
     styleUrls: ['./footer.component.scss'],
     standalone: false
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent implements OnInit, AfterViewInit {
   lastPosts:any = null;
-  constructor(private blogService: BlogsService, private router: Router) { }
+  constructor(private blogService: BlogsService, private router: Router, private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
+  }
+
+  ngAfterViewInit(): void {
     this.blogService.get().then( (r:any) => {
       this.lastPosts = r.slice(-5);
+      this.cdr.detectChanges();
     })
   }
 

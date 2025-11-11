@@ -1,32 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { TechnologiesService } from '../services/technologies.service';
 import { environment as ENV } from 'src/environments/environment';
 import { BriefcasesService } from '../services/briefcases.service';
 import { FormBuilder } from '@angular/forms';
 import { createContactForm } from '../contact/contact.form';
 import { Router } from '@angular/router';
+import { createSlug } from '../utils/slug.utils';
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss'],
     standalone: false
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
 
   techs = null;
   briefs = null;
   url = ENV.uploadUrl;
 
   constructor(private techService: TechnologiesService, private briefsService: BriefcasesService,
-    private route: Router
+    private route: Router, private cdr: ChangeDetectorRef
    ) { }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  ngAfterViewInit() {
 
     this.techService.get().then( (r:any) => {
       console.log('TECH RETURNED', r);
       if (r)
         this.techs = r;
+      this.cdr.markForCheck();
     });
 
     this.briefsService.get().then( (r:any) => {
@@ -34,6 +38,7 @@ export class HomeComponent implements OnInit {
       if (r){
         r = r.sort( (a: any, b: any) => b.id - a.id);
         this.briefs = r;
+        this.cdr.markForCheck();
       }
     });
   }
@@ -43,10 +48,14 @@ export class HomeComponent implements OnInit {
   }
 
   getImageUrls(images: any[]): string[] {
+    if (!images || images.length === 0) {
+      return [];
+    }
     return images.map(img => this.url + '/' + img.url);
   }
 
   openItem(item:any){
-    this.route.navigate(['portfolio/'+item.id]);
+    const slug = createSlug(item.name, item.id);
+    this.route.navigate(['portfolio/' + slug]);
   }
 }
