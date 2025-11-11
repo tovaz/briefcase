@@ -18,8 +18,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
   briefs = null;
   url = ENV.uploadUrl;
 
-  constructor(private techService: TechnologiesService, private briefsService: BriefcasesService,
-    private route: Router, private cdr: ChangeDetectorRef
+  constructor(
+    private techService: TechnologiesService,
+    private briefsService: BriefcasesService,
+    private route: Router,
+    private cdr: ChangeDetectorRef
    ) { }
 
   ngOnInit() {}

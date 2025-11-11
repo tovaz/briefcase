@@ -1,23 +1,477 @@
-.first {
+// ============================================
+// HERO SECTION - Modern Material Design
+// ============================================
+.hero-section {
+    position: relative;
+    // min-height: 100vh;
+    padding: 4rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(var(--background-rgb), 0.5);
+    overflow: hidden;
+
+    // Efecto de gradiente de fondo sutil
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 20% 50%, rgba(var(--primary-rgb, 63, 81, 181), 0.05) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 80%, rgba(var(--accent-rgb, 255, 64, 129), 0.05) 0%, transparent 50%);
+        pointer-events: none;
+        z-index: 0;
+    }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+// Social Sidebar - Floating
+.social-sidebar {
+    position: fixed;
+    left: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    padding: 1rem;
     background: rgba(var(--background-rgb), 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+    &:hover {
+        box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+        transform: translateY(-50%) scale(1.05);
+    }
 }
 
-.text-wrap {
-  word-wrap: break-word;
-  white-space: pre-wrap;
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(var(--foreground-rgb, 0, 0, 0), 0.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(var(--primary-rgb, 63, 81, 181), 0.2);
+        transform: translate(-50%, -50%);
+        transition: width 0.4s, height 0.4s;
+    }
+
+    &:hover {
+        background: rgba(var(--primary-rgb, 63, 81, 181), 0.1);
+        transform: translateY(-4px);
+
+        &::before {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .social-image {
+        width: 24px;
+        height: 24px;
+        margin: 0;
+        position: relative;
+        z-index: 1;
+        filter: grayscale(0.3);
+        transition: all 0.3s ease;
+    }
+
+    &:hover .social-image {
+        filter: grayscale(0);
+        transform: scale(1.1);
+    }
 }
 
-.social-image{
-    margin: 5px 0;
+// Profile Cards - Modern Design con efecto de luz
+.profile-card {
+    position: relative;
+    min-height: 400px;
+    background: rgba(var(--background-rgb), 0.95) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 24px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
+    border: 1px solid rgba(var(--foreground-rgb, 0, 0, 0), 0.05);
+    overflow: hidden !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    cursor: default;
+
+    // Efecto de luz que sigue el cursor (usando variables de la directiva)
+    &::before {
+        content: '';
+        position: absolute;
+        width: var(--glow-size, 300px);
+        height: var(--glow-size, 300px);
+        background: radial-gradient(
+            circle at center,
+            rgba(var(--glow-color-rgb, 255, 0, 0), var(--glow-intensity, 0.8)) 0%,
+            rgba(var(--glow-color-rgb, 255, 0, 0), calc(var(--glow-intensity, 0.8) * 0.3)) 40%,
+            transparent 70%
+        );
+        left: var(--mouse-x, 50%);
+        top: var(--mouse-y, 50%);
+        transform: translate(-50%, -50%);
+        opacity: var(--glow-opacity, 0);
+        transition: opacity 0.1s ease-out;
+        pointer-events: none;
+        z-index: 100;
+        will-change: transform, opacity;
+    }
+
+    &:hover {
+        // transform: translateY(-8px) !important;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15) !important;
+        border-color: var(--card-border-color, rgba(63, 81, 181, 0.3));
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+
+    mat-card-content {
+        padding: 3rem 2rem !important;
+        height: 100%;
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        z-index: 200;
+    }
+}
+
+// Colores específicos para cada tarjeta
+.designer-card {
+    --glow-color: rgba(156, 39, 176, 0.8) !important; // Purple más intenso
+    --card-border-color: rgba(156, 39, 176, 0.4);
+    --card-accent: #9c27b0;
+}
+
+.logo-card {
+    --glow-color: rgba(33, 150, 243, 0.8) !important; // Blue más intenso
+    --card-border-color: rgba(33, 150, 243, 0.4);
+    --card-accent: #2196f3;
+}
+
+.coder-card {
+    --glow-color: rgba(255, 87, 34, 0.8) !important; // Orange más intenso
+    --card-border-color: rgba(255, 87, 34, 0.4);
+    --card-accent: #ff5722;
+}
+
+.coder-card {
+    --card-glow-color: rgba(255, 87, 34, 0.5); // Deep Orange
+    --card-border-color: rgba(255, 87, 34, 0.4);
+    --card-accent: #ff5722;
+}
+
+.icon-wrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+    }
+}
+
+.designer-card .icon-wrapper {
+    background: linear-gradient(135deg, rgba(156, 39, 176, 0.15), rgba(103, 58, 183, 0.15));
+
+    &::before {
+        background: linear-gradient(135deg, rgba(156, 39, 176, 0.2), rgba(103, 58, 183, 0.2));
+    }
+}
+
+.coder-card .icon-wrapper {
+    background: linear-gradient(135deg, rgba(255, 87, 34, 0.15), rgba(244, 67, 54, 0.15));
+
+    &::before {
+        background: linear-gradient(135deg, rgba(255, 87, 34, 0.2), rgba(244, 67, 54, 0.2));
+    }
+}
+
+.logo-card .icon-wrapper {
+    background: linear-gradient(135deg, rgba(33, 150, 243, 0.15), rgba(3, 169, 244, 0.15));
+
+    &::before {
+        background: linear-gradient(135deg, rgba(33, 150, 243, 0.2), rgba(3, 169, 244, 0.2));
+    }
+}
+
+.profile-icon {
+    font-size: 40px;
     width: 40px;
+    height: 40px;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.designer-card .profile-icon {
+    color: #9c27b0;
+}
+
+.coder-card .profile-icon {
+    color: #ff5722;
+}
+
+.logo-card .profile-icon {
+    color: var(--accent);
+}
+
+.profile-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0 0 1rem 0;
+    color: var(--foreground);
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+.designer-card .profile-title {
+    background: linear-gradient(135deg, #9c27b0, #673ab7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.coder-card .profile-title {
+    background: linear-gradient(135deg, #ff5722, #f44336);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.logo-card .profile-title {
+    background: linear-gradient(135deg, #2196f3, #03a9f4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.profile-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(var(--foreground-rgb, 0, 0, 0), 0.7);
+    text-align: center;
+    margin: 0;
+    max-width: 300px;
+}
+
+// Logo Card - Special styling
+.logo-card {
+    width: 100%;
+    mat-card-content {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .logo-wrapper {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto 1.5rem;
+        box-shadow: 0 8px 32px rgba(33, 150, 243, 0.3);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                transparent,
+                rgba(33, 150, 243, 0.4),
+                transparent 30%
+            );
+            animation: rotate 4s linear infinite;
+        }
+    }
+
+    &:hover .logo-wrapper {
+        transform: scale(1.05);
+        box-shadow: 0 12px 48px rgba(33, 150, 243, 0.4);
+    }
+
+    .logo-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: relative;
+        z-index: 1;
+    }
+
+    .brand-text {
+        text-align: center;
+
+        .brand-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #2196f3, #03a9f4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .brand-tagline {
+            font-size: 1rem;
+            color: rgba(var(--foreground-rgb, 0, 0, 0), 0.6);
+            margin: 0.5rem 0 0;
+            letter-spacing: 1px;
+        }
+    }
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+// ============================================
+// RESPONSIVE DESIGN
+// ============================================
+@media screen and (max-width: 960px) {
+    .hero-content {
+        padding: 1rem;
+    }
+
+    .profile-card {
+        min-height: 350px;
+
+        mat-card-content {
+            padding: 2rem 1.5rem !important;
+        }
+    }
+
+    .social-sidebar {
+        left: 1rem;
+    }
+}
+
+@media screen and (max-width: 599px) {
+    .hero-section {
+        padding: 2rem 1rem;
+        min-height: auto;
+    }
+
+    .social-sidebar {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        flex-direction: row !important;
+        margin-bottom: 2rem;
+        width: fit-content;
+        margin: 0 auto 2rem;
+    }
+
+    .social-link {
+        width: 40px;
+        height: 40px;
+
+        .social-image {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    .profile-card {
+        min-height: 300px;
+        margin: 0.5rem 0;
+
+        mat-card-content {
+            padding: 2rem 1rem !important;
+        }
+    }
+
+    .icon-wrapper {
+        width: 64px;
+        height: 64px;
+    }
+
+    .profile-icon {
+        font-size: 32px;
+        width: 32px;
+        height: 32px;
+    }
+
+    .profile-title {
+        font-size: 1.5rem;
+    }
+
+    .profile-description {
+        font-size: 0.9rem;
+    }
+
+    .logo-card .logo-wrapper {
+        width: 150px;
+        height: 150px;
+    }
+
+    .brand-name {
+        font-size: 1.25rem !important;
+    }
+}
+
+// ============================================
+// TECHNOLOGY & PORTFOLIO SECTIONS (mantener existente)
+// ============================================
 
 .technology {
     //background: rgba(var(--background-rgb), 0.8);
     text-align: center;
 
     div {
-        margin: 10px;
+        // margin: 10px;
         img {
             width: 75px;
         }
@@ -44,6 +498,10 @@
         text-align: center;
         h3 { margin: 0; }
         z-index: 99;
+    }
+
+    mat-card:hover {
+      cursor: pointer;
     }
 }
 

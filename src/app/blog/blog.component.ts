@@ -14,8 +14,8 @@ import { createSlug } from '../utils/slug.utils';
 export class BlogComponent implements OnInit {
   categories:any = [];
   technologies:any = [];
-  selectedCat = { name: 'Todas', id: -1 };
-  selectedTech = { name: 'Todas', id: -1 };
+  selectedCat = { name: 'All', id: -1 };
+  selectedTech = { name: 'All', id: -1 };
   searchTerm = '';
 
   posts:any = null;

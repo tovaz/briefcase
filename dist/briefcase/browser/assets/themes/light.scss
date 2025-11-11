@@ -36,29 +36,29 @@ $custom-palette: (
 );
 
 // Color palette definitions
-$primary-palette: mat.define-palette($custom-palette, 900);
-$accent-palette: mat.define-palette($custom-palette, 400);
-$warn-palette: mat.define-palette(mat.$red-palette);
+$primary-palette: mat.m2-define-palette($custom-palette, 900);
+$accent-palette: mat.m2-define-palette($custom-palette, 400);
+$warn-palette: mat.m2-define-palette(mat.$m2-red-palette);
 
 // Typography configuration
-$typography-config: mat.define-typography-config(
+$typography-config: mat.m2-define-typography-config(
   $font-family: 'Manrope',
-  $headline-1: mat.define-typography-level(112px, 112px, 300),
-  $headline-2: mat.define-typography-level(56px, 56px, 400),
-  $headline-3: mat.define-typography-level(45px, 48px, 400),
-  $headline-4: mat.define-typography-level(34px, 40px, 400),
-  $headline-5: mat.define-typography-level(24px, 32px, 400),
-  $headline-6: mat.define-typography-level(20px, 32px, 500),
-  $subtitle-1: mat.define-typography-level(16px, 28px, 400),
-  $subtitle-2: mat.define-typography-level(15px, 24px, 400),
-  $body-1: mat.define-typography-level(14px, 24px, 400),
-  $body-2: mat.define-typography-level(14px, 20px, 400),
-  $caption: mat.define-typography-level(12px, 20px, 400),
-  $button: mat.define-typography-level(14px, 14px, 500)
+  $headline-1: mat.m2-define-typography-level(112px, 112px, 300),
+  $headline-2: mat.m2-define-typography-level(56px, 56px, 400),
+  $headline-3: mat.m2-define-typography-level(45px, 48px, 400),
+  $headline-4: mat.m2-define-typography-level(34px, 40px, 400),
+  $headline-5: mat.m2-define-typography-level(24px, 32px, 400),
+  $headline-6: mat.m2-define-typography-level(20px, 32px, 500),
+  $subtitle-1: mat.m2-define-typography-level(16px, 28px, 400),
+  $subtitle-2: mat.m2-define-typography-level(15px, 24px, 400),
+  $body-1: mat.m2-define-typography-level(14px, 24px, 400),
+  $body-2: mat.m2-define-typography-level(14px, 20px, 400),
+  $caption: mat.m2-define-typography-level(12px, 20px, 400),
+  $button: mat.m2-define-typography-level(14px, 14px, 500)
 );
 
 // Crear tema claro
-$light-theme: mat.define-light-theme((
+$light-theme: mat.m2-define-light-theme((
   color: (
     primary: $primary-palette,
     accent: $accent-palette,

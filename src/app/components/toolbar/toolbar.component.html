@@ -1,22 +1,43 @@
-<mat-toolbar color="dark" class="fx-row fx-align-center fx-justify-between">
-  <div class="fx-show fx-hide-gt-sm">
-    <button mat-icon-button class="example-icon" (click)="sidebar.toggle()">
-      <mat-icon>menu</mat-icon>
-    </button>
-  </div>
+<div class="content">
+  <mat-toolbar
+    color="dark"
+    class="fx-row fx-align-center fx-justify-between"
+    appScrollClass
+    [scrollThreshold]="50"
+    scrolledClass="toolbar-scrolled"
+    [scrollElementId]="'appComponent'"
+    topClass="toolbar-at-top">
+    <!-- <div class="fx-show fx-hide-gt-sm">
+      <button mat-icon-button class="example-icon" (click)="sidebar.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div> -->
 
-  <span class="space"></span>
+    <span class="space"></span>
 
-  <div class="fx-show fx-hide-lt-sm menu-buttons fx-row fx-align-center fx-gap-16">
-    <a mat-button routerLinkActive="active" routerLink="" [routerLinkActiveOptions]="{ exact: true }">About</a>
-    <a mat-button routerLinkActive="active" routerLink="portfolio">Portfolio</a>
-    <a mat-button routerLinkActive="active" routerLink="blog">Blog</a>
-    <a mat-button routerLinkActive="active" routerLink="contact">Contact</a>
-  </div>
-  <button mat-button (click)="changeTheme()" style="min-width: 50px;">
-    <div style="transform: translateY(13%);">
-      <svg-icon src="assets/images/dark.svg" [svgStyle]="{ 'width.px':20, 'fill':'#fff', 'height.px':20 }" *ngIf="currentTheme=='dark'" ></svg-icon>
-      <svg-icon src="assets/images/sun.svg" [svgStyle]="{ 'width.px':20, 'fill':'#fff', 'height.px':20 }" *ngIf="currentTheme!='dark'"></svg-icon>
+    <div class="fx-show menu-buttons fx-row fx-align-center fx-gap-16">
+      <a mat-button routerLinkActive="active" routerLink="" [routerLinkActiveOptions]="{ exact: true }">
+        <mat-icon class="fx-hide-gt-sm">home</mat-icon>
+        <span class="fx-hide-lt-sm">About</span>
+      </a>
+      <a mat-button routerLinkActive="active" routerLink="portfolio">
+        <mat-icon class="fx-hide-gt-sm">work</mat-icon>
+        <span class="fx-hide-lt-sm">Portfolio</span>
+      </a>
+      <a mat-button routerLinkActive="active" routerLink="blog">
+        <mat-icon class="fx-hide-gt-sm">article</mat-icon>
+        <span class="fx-hide-lt-sm">Blog</span>
+      </a>
+      <a mat-button routerLinkActive="active" routerLink="contact">
+        <mat-icon class="fx-hide-gt-sm">mail</mat-icon>
+        <span class="fx-hide-lt-sm">Contact</span>
+      </a>
     </div>
-  </button>
- </mat-toolbar>
+    <button mat-button (click)="changeTheme()" style="min-width: 50px;">
+      <div style="transform: translateY(13%);">
+        <svg-icon src="assets/images/dark.svg" [svgStyle]="{ 'width.px':20, 'fill':'#fff', 'height.px':20 }" *ngIf="currentTheme=='dark'" ></svg-icon>
+        <svg-icon src="assets/images/sun.svg" [svgStyle]="{ 'width.px':20, 'fill':'#fff', 'height.px':20 }" *ngIf="currentTheme!='dark'"></svg-icon>
+      </div>
+    </button>
+  </mat-toolbar>
+</div>

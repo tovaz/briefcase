@@ -51,7 +51,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       if (currentTheme)
         this.changeTheme(currentTheme);
       else
-        this.themeService.setTheme('light');
+        this.themeService.setTheme('dark');
     }, 50);
   }
 

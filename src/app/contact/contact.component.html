@@ -1,7 +1,57 @@
-<div class="contact hide-on-init fx-flex fx-row fx-column-sm fx-column-xs fx-center" style="padding: 2rem; max-width: 1200px; margin: 0 auto;" animateOnScroll animationName="animated fadeIn">
+<div class="contact hide-on-init fx-flex fx-row fx-column-sm fx-column-xs fx-center"
+  animateOnScroll animationName="animated fadeIn"
+  appAnimatedBackground
+  backgroundStyle="nordic"
+>
+  <div class="wrapper" style="padding: 2rem; max-width: 1200px; margin: 0 auto;">
     <div class="fx-flex-100 fx-center fx-column" style="text-align: center; padding: 2rem;" *ngIf="!sentEmail">
-        <h2 class="mb-4">Get in touch with me</h2>
-        <img src="assets/images/contact.svg" style="width: 200px; height: auto;" />
+        <h2 class="mb-4" style="font-size: 2.5rem; font-weight: 600; margin-bottom: 1rem;">Let's Work Together</h2>
+        <p class="show" style="font-size: 1.2rem; max-width: 700px; margin: 0 auto 1.5rem; line-height: 1.6; opacity: 0.9;">
+          I'm always excited to collaborate on new projects and innovative ideas. Whether you need a full-stack solution,
+          a modern web application, or technical consulting, I'm here to help bring your vision to life.
+        </p>
+        <!-- <p style="font-size: 1.1rem; max-width: 650px; margin: 0 auto 2rem; line-height: 1.6; opacity: 0.85;">
+          Drop me a message below and I'll get back to you within 24 hours. Let's discuss how we can create
+          something amazing together!
+        </p> -->
+
+        <!-- Contact Icon SVG -->
+        <svg width="180" height="180" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg" style="margin: 1rem auto;" class="contact-icon">
+          <defs>
+            <filter id="shadow">
+              <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.2"/>
+            </filter>
+          </defs>
+
+          <!-- Background Circle -->
+          <circle cx="90" cy="90" r="75" class="icon-bg-circle"/>
+
+          <!-- Email Envelope -->
+          <g filter="url(#shadow)">
+            <!-- Envelope body -->
+            <rect x="40" y="60" width="100" height="70" rx="8" class="icon-envelope-body"/>
+
+            <!-- Envelope flap -->
+            <path d="M 40 60 L 90 95 L 140 60" class="icon-envelope-line" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M 40 60 L 90 95 L 140 60 L 140 70 L 90 105 L 40 70 Z" class="icon-envelope-flap"/>
+          </g>
+
+          <!-- Message lines inside envelope -->
+          <line x1="55" y1="100" x2="95" y2="100" stroke="white" stroke-width="2" opacity="0.6" stroke-linecap="round"/>
+          <line x1="55" y1="110" x2="125" y2="110" stroke="white" stroke-width="2" opacity="0.6" stroke-linecap="round"/>
+          <line x1="55" y1="120" x2="110" y2="120" stroke="white" stroke-width="2" opacity="0.6" stroke-linecap="round"/>
+
+          <!-- @ Symbol (decorative) -->
+          <circle cx="145" cy="50" r="12" class="icon-at-circle"/>
+          <text x="145" y="57" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">@</text>
+
+          <!-- Message bubble (decorative) -->
+          <circle cx="35" cy="140" r="15" class="icon-bubble-circle"/>
+          <path d="M 35 152 L 30 160 L 38 154" class="icon-bubble-tail"/>
+          <circle cx="30" cy="137" r="2" fill="white" opacity="0.8"/>
+          <circle cx="35" cy="137" r="2" fill="white" opacity="0.8"/>
+          <circle cx="40" cy="137" r="2" fill="white" opacity="0.8"/>
+        </svg>
     </div>
 
     <div class="fx-flex-100 fx-center fx-column" *ngIf="sentEmail" style="text-align: center;">
@@ -54,4 +104,6 @@
             </button>
         </div>
     </form>
+
+    </div>
 </div>

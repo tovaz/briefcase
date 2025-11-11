@@ -5,6 +5,9 @@ import { AnimateOnScrollDirective } from './animate-on-scroll.directive';
 import { FlexLayoutDirective } from './flex-layout.directive';
 import { ResponsiveClassDirective } from './responsive-class.directive';
 import { ResponsiveStyleDirective } from './responsive-style.directive';
+import { ScrollClassDirective } from './scroll-class.directive';
+import { CursorGlowDirective } from './cursor-glow.directive';
+import { AnimatedBackgroundDirective } from './animated-background.directive';
 
 @NgModule({
   declarations: [
@@ -12,7 +15,10 @@ import { ResponsiveStyleDirective } from './responsive-style.directive';
     AnimateOnScrollDirective,
     FlexLayoutDirective,
     ResponsiveClassDirective,
-    ResponsiveStyleDirective
+    ResponsiveStyleDirective,
+    ScrollClassDirective,
+    CursorGlowDirective,
+    AnimatedBackgroundDirective
   ],
   imports: [
     CommonModule
@@ -22,7 +28,10 @@ import { ResponsiveStyleDirective } from './responsive-style.directive';
     AnimateOnScrollDirective,
     FlexLayoutDirective,
     ResponsiveClassDirective,
-    ResponsiveStyleDirective
+    ResponsiveStyleDirective,
+    ScrollClassDirective,
+    CursorGlowDirective,
+    AnimatedBackgroundDirective
   ]
 })
 export class DirectivesModule { }

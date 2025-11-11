@@ -1,39 +1,47 @@
-<div style="min-height: 100vh;" class="hide-on-init" animateOnScroll animationName="animated fadeIn">
-  <div style="padding: 25px; display: flex; justify-content: center;" *ngIf="!briefs">
-    <mat-spinner color="primary" style="transform: scale(0.5);"></mat-spinner>
-  </div>
+<div style="min-height: 100vh;" class="hide-on-init" animateOnScroll animationName="animated fadeIn"
+appAnimatedBackground
+         backgroundStyle="mesh"
+          [backgroundOpacity]="0.3"
+         >
 
-  <div class="fx-column fx-center" style="margin-top: 20px">
-    <div class="fx-flex-100" style="text-align: center;">
-      <h1>Portfolio</h1>
-      <h4>A glimpse of my work along this short but meaningful journey 🙂</h4>
+  <div class="content">
+    <div style="padding: 25px; display: flex; justify-content: center;" *ngIf="!briefs">
+      <mat-spinner color="primary" style="transform: scale(0.5);"></mat-spinner>
+    </div>
+
+    <div class="fx-column fx-center" style="margin-top: 20px">
+      <div class="fx-flex-100" style="text-align: center;">
+        <h1>Portfolio</h1>
+        <h4>A glimpse of my work along this short but meaningful journey 🙂</h4>
+      </div>
+    </div>
+
+    <div class="portfolio fx-row  fx-center flex-justify-center flex-align-center fx-column-sm fx-column-xs" style="padding: 2rem;" animationName="animated bounceInUp">
+      <div class="portfolio fx-grid fx-grid-cols-4 fx-gap-8" >
+        <mat-card *ngFor="let brief of briefs"
+        style="margin: 10px; padding: 0;" matRipple
+        animateOnScroll animationName="animated-d-05 animated zoomIn"
+        (click)="openItem(brief)">
+          <div style="height: 300px;">
+            <app-image-slider
+              [images]="getImageUrls(brief.images)"
+              [config]="{
+                autoplay: true,
+                delay: 2000,
+                loop: true,
+                effect: 'slide',
+                showNavigation: false,
+                showPagination: false,
+                disableOnInteraction: false
+              }">
+            </app-image-slider>
+          </div>
+          <div class="name">
+            <p>{{ brief.name }}</p>
+          </div>
+        </mat-card>
+      </div>
     </div>
   </div>
 
-  <div class="portfolio fx-row  fx-center flex-justify-center flex-align-center fx-column-sm fx-column-xs" style="padding: 2rem;" animationName="animated bounceInUp">
-    <div class="portfolio fx-grid fx-grid-cols-4 fx-gap-8" >
-      <mat-card *ngFor="let brief of briefs"
-      style="margin: 10px; padding: 0;" matRipple
-      animateOnScroll animationName="animated-d-05 animated zoomIn"
-      (click)="openItem(brief)">
-        <div style="height: 300px;">
-          <app-image-slider
-            [images]="getImageUrls(brief.images)"
-            [config]="{
-              autoplay: true,
-              delay: 2000,
-              loop: true,
-              effect: 'slide',
-              showNavigation: false,
-              showPagination: false,
-              disableOnInteraction: false
-            }">
-          </app-image-slider>
-        </div>
-        <div class="name">
-          <p>{{ brief.name }}</p>
-        </div>
-      </mat-card>
-    </div>
-  </div>
 </div>
